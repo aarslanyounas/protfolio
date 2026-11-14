@@ -46,7 +46,7 @@
       "image": "https://arslanyounas-amber.vercel.app/assets/icon-512.png",
       "jobTitle": "Sr. AI SEO Strategist",
       "description": "AI SEO strategist helping brands rank on Google and get cited in AI answers.",
-      "email": "mailto:info.aarslanyounas@gmail.com",
+      "email": "mailto:arslanyounas@zohomail.com",
       "worksFor": { "@type": "Organization", "name": "Cyber Nest" },
       "homeLocation": { "@type": "Place", "name": "Lahore, Pakistan" },
       "alumniOf": { "@type": "CollegeOrUniversity", "name": "NCBA&E, Lahore" },
@@ -305,9 +305,9 @@ footer{border-top:1px solid var(--line);padding:28px 0}
       <h2 id="enq" class="rv">The site’s still building.<br>Your project doesn’t have to wait.</h2>
       <p class="lead rv">Tell me what you’re working on — an audit, an indexing problem, or getting your brand cited in AI answers. Pick the fastest channel.</p>
       <div class="channels">
-        <a class="ch rv" href="mailto:info.aarslanyounas@gmail.com" data-copy>
+        <a class="ch rv" href="mailto:arslanyounas@zohomail.com" data-copy>
           <span class="ch-i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg></span>
-          <span><p>Email <span class="copied" id="copied">copied</span></p><small>info.aarslanyounas@gmail.com</small></span>
+          <span><p>Email <span class="copied" id="copied">copied</span></p><small>arslanyounas@zohomail.com</small></span>
           <svg class="go" width="18" height="18" viewBox="0 0 24 16" fill="none" aria-hidden="true"><path d="M4 8h16M15 3.2 20 8l-5 4.8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
         <a class="ch rv" href="https://www.linkedin.com/in/arslanyounas/" target="_blank" rel="noopener me">
@@ -357,7 +357,7 @@ footer{border-top:1px solid var(--line);padding:28px 0}
 <footer>
   <div class="wrap foot">
     <span>© <span id="yr">2026</span> Arslan Younas · Lahore, Pakistan</span>
-    <span><a href="https://www.linkedin.com/in/arslanyounas/" target="_blank" rel="noopener me">LinkedIn</a> · <a href="mailto:info.aarslanyounas@gmail.com">Email</a> · <a href="https://www.upwork.com/freelancers/~018f5670b1d9bae932" target="_blank" rel="noopener">Upwork</a></span>
+    <span><a href="https://www.linkedin.com/in/arslanyounas/" target="_blank" rel="noopener me">LinkedIn</a> · <a href="mailto:arslanyounas@zohomail.com">Email</a> · <a href="https://www.upwork.com/freelancers/~018f5670b1d9bae932" target="_blank" rel="noopener">Upwork</a></span>
   </div>
 </footer>
 
@@ -378,7 +378,7 @@ setTimeout(runMeter,500);
 var lines=document.querySelectorAll("#log li");
 if(reduce){lines.forEach(function(l){l.classList.add("on")})}else{lines.forEach(function(l,i){setTimeout(function(){l.classList.add("on")},700+i*520)})}
 // copy email on click (still opens mail client)
-var cp=document.getElementById("copied");document.querySelector("[data-copy]").addEventListener("click",function(){if(navigator.clipboard){navigator.clipboard.writeText("info.aarslanyounas@gmail.com").then(function(){cp.classList.add("on");setTimeout(function(){cp.classList.remove("on")},1800)}).catch(function(){})}});
+var cp=document.getElementById("copied");document.querySelector("[data-copy]").addEventListener("click",function(){if(navigator.clipboard){navigator.clipboard.writeText("arslanyounas@zohomail.com").then(function(){cp.classList.add("on");setTimeout(function(){cp.classList.remove("on")},1800)}).catch(function(){})}});
 // form
 var f=document.getElementById("form"),st=document.getElementById("status"),btn=document.getElementById("send");
 function show(cls,msg){st.className="status "+cls;st.textContent=msg}
@@ -389,14 +389,14 @@ f.addEventListener("submit",function(ev){
   if(!name||!email||!msg){show("err","Please add your name, email and a short message.");return}
   if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){show("err","That email doesn’t look right — please check it.");el.namedItem("email").focus();return}
   btn.disabled=true;show("","");
-  fetch("https://formsubmit.co/ajax/info.aarslanyounas@gmail.com",{method:"POST",headers:{"Content-Type":"application/json",Accept:"application/json"},
+  fetch("https://formsubmit.co/ajax/arslanyounas@zohomail.com",{method:"POST",headers:{"Content-Type":"application/json",Accept:"application/json"},
     body:JSON.stringify({name:name,email:email,website:site,service:svc,message:msg,_subject:"New enquiry: "+svc+" — "+name,_template:"table",_replyto:email})})
   .then(function(r){return r.json().then(function(j){return {ok:r.ok,j:j}})})
   .then(function(res){if(res.ok&&String(res.j.success)==="true"){f.reset();show("ok","Thanks, "+name.split(" ")[0]+" — your enquiry is in. I’ll reply within 24 hours.")}else{throw new Error("fail")}})
   .catch(function(){
     var body=encodeURIComponent("Name: "+name+"\nEmail: "+email+(site?"\nWebsite: "+site:"")+"\nService: "+svc+"\n\n"+msg);
     show("err","The form couldn’t send just now — opening your email app instead.");
-    location.href="mailto:info.aarslanyounas@gmail.com?subject="+encodeURIComponent("Enquiry: "+svc)+"&body="+body;
+    location.href="mailto:arslanyounas@zohomail.com?subject="+encodeURIComponent("Enquiry: "+svc)+"&body="+body;
   })
   .finally(function(){btn.disabled=false});
 });
