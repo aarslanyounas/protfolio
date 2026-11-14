@@ -120,6 +120,20 @@ form{padding:30px;border-radius:24px;background:var(--ink-2);border:1px solid va
 .f input:focus+label,.f input:not(:placeholder-shown)+label,.f textarea:focus+label,.f textarea:not(:placeholder-shown)+label,.f select+label{top:8px;font:500 10.5px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--orange)}
 .f select{cursor:pointer}.f select option{background:var(--ink-2)}
 .f.sel::after{content:"";position:absolute;right:18px;top:22px;width:8px;height:8px;border-right:1.5px solid var(--muted);border-bottom:1.5px solid var(--muted);transform:rotate(45deg);pointer-events:none}
+
+/* custom dropdown */
+.dd{z-index:3}
+.dd-btn{width:100%;display:flex;flex-direction:column;align-items:flex-start;gap:6px;text-align:left;cursor:pointer;font:400 15px/1.4 var(--sans);color:var(--text);background:var(--ink);border:1px solid var(--line);border-radius:12px;padding:9px 40px 10px 14px;transition:border-color .25s,box-shadow .25s}
+.dd-btn::after{content:"";position:absolute;right:18px;top:22px;width:8px;height:8px;border-right:1.5px solid var(--muted);border-bottom:1.5px solid var(--muted);transform:rotate(45deg);transition:transform .3s var(--ease),border-color .3s}
+.dd.open .dd-btn::after{transform:translateY(4px) rotate(-135deg);border-color:var(--orange)}
+.dd-btn:focus-visible,.dd.open .dd-btn{outline:none;border-color:var(--orange);box-shadow:0 0 0 4px rgba(255,79,18,.15)}
+.dd-l{font:500 10.5px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--orange)}
+.dd-list{position:absolute;left:0;right:0;top:calc(100% + 6px);list-style:none;padding:6px;border-radius:14px;background:var(--ink-3);border:1px solid var(--line);box-shadow:0 24px 50px -20px rgba(0,0,0,.8);opacity:0;transform:translateY(-6px) scale(.98);pointer-events:none;transition:opacity .2s,transform .3s var(--ease)}
+.dd.open .dd-list{opacity:1;transform:none;pointer-events:auto}
+.dd-list li{display:flex;align-items:center;justify-content:space-between;padding:11px 12px;border-radius:9px;font:400 14.5px/1.3 var(--sans);color:var(--muted);cursor:pointer;transition:background .2s,color .2s}
+.dd-list li:hover,.dd-list li.act{background:rgba(255,79,18,.12);color:var(--text)}
+.dd-list li[aria-selected="true"]{color:var(--orange)}
+.dd-list li[aria-selected="true"]::after{content:"";width:9px;height:5px;border-left:1.8px solid var(--orange);border-bottom:1.8px solid var(--orange);transform:rotate(-45deg) translateY(-2px)}
 .r2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .hp{position:absolute;left:-9999px}
 .ff{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;margin-top:8px}
@@ -207,7 +221,17 @@ footer{border-top:1px solid var(--line);padding:26px 0}
         <div class="f"><input id="n" name="name" placeholder=" " autocomplete="name" required><label for="n">Name</label></div>
         <div class="f"><input id="e" name="email" type="email" placeholder=" " autocomplete="email" required><label for="e">Email</label></div>
       </div>
-      <div class="f sel"><select id="s" name="service"><option>SEO audit</option><option>AI search (AEO / GEO)</option><option>Technical SEO</option><option>Content strategy</option><option>Something else</option></select><label for="s">I need help with</label></div>
+      <div class="f dd" id="dd">
+        <input type="hidden" name="service" id="svc" value="SEO audit">
+        <button type="button" class="dd-btn" id="ddb" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="ddl ddv"><span class="dd-l" id="ddl">I need help with</span><span class="dd-v" id="ddv">SEO audit</span></button>
+        <ul class="dd-list" id="ddlist" role="listbox" aria-labelledby="ddl" tabindex="-1">
+          <li role="option" aria-selected="true">SEO audit</li>
+          <li role="option" aria-selected="false">AI search (AEO / GEO)</li>
+          <li role="option" aria-selected="false">Technical SEO</li>
+          <li role="option" aria-selected="false">Content strategy</li>
+          <li role="option" aria-selected="false">Something else</li>
+        </ul>
+      </div>
       <div class="f"><textarea id="m" name="message" placeholder=" " required></textarea><label for="m">Tell me about your site</label></div>
       <div class="ff"><small>Straight to my inbox. No spam.</small>
         <button class="btn btn-o" type="submit" id="send">Send
@@ -238,6 +262,16 @@ if(reduce){qt.textContent=q;ans.innerHTML=a;show();}else{
     var i=0;(function tq(){qt.textContent=q.slice(0,++i);if(i<q.length)setTimeout(tq,48);else setTimeout(function(){show();var plain=a.replace(/<[^>]+>/g,""),j=0;(function ta(){j+=2;ans.textContent=plain.slice(0,j);if(j<plain.length)setTimeout(ta,18);else ans.innerHTML=a})()},350)})();
   },{threshold:.35}).observe(document.querySelector(".serp"));
 }
+
+// custom dropdown
+var dd=document.getElementById("dd"),ddb=document.getElementById("ddb"),ddv=document.getElementById("ddv"),svc=document.getElementById("svc"),list=document.getElementById("ddlist"),opts=[].slice.call(list.querySelectorAll("li")),di=0;
+function openDD(o){dd.classList.toggle("open",o);ddb.setAttribute("aria-expanded",o);if(o){di=Math.max(0,opts.findIndex(function(x){return x.getAttribute("aria-selected")==="true"}));mark()}}
+function mark(){opts.forEach(function(x,i){x.classList.toggle("act",i===di)})}
+function pick(i){opts.forEach(function(x,j){x.setAttribute("aria-selected",j===i)});ddv.textContent=svc.value=opts[i].textContent;openDD(false);ddb.focus()}
+ddb.addEventListener("click",function(){openDD(!dd.classList.contains("open"))});
+opts.forEach(function(x,i){x.addEventListener("click",function(){pick(i)});x.addEventListener("mouseenter",function(){di=i;mark()})});
+ddb.addEventListener("keydown",function(e){var o=dd.classList.contains("open");if(e.key==="ArrowDown"||e.key==="ArrowUp"){e.preventDefault();if(!o){openDD(true);return}di=(di+(e.key==="ArrowDown"?1:-1)+opts.length)%opts.length;mark()}else if((e.key==="Enter"||e.key===" ")&&o){e.preventDefault();pick(di)}else if(e.key==="Escape"){openDD(false)}});
+document.addEventListener("click",function(e){if(!dd.contains(e.target))openDD(false)});
 var f=document.getElementById("form"),st=document.getElementById("st"),b=document.getElementById("send");
 function say(c,t){st.className="st "+c;st.textContent=t}
 f.addEventListener("submit",function(e){
@@ -245,7 +279,7 @@ f.addEventListener("submit",function(e){
   if(!f.checkValidity()){say("err","Please fill in your name, a valid email and a short message.");return}
   b.disabled=true;
   fetch("/",{method:"POST",headers:{"Content-Type":"application/x-www-form-urlencoded"},body:new URLSearchParams(new FormData(f)).toString()})
-  .then(function(r){if(!r.ok)throw 0;var nm=f.elements.namedItem("name").value.split(" ")[0];f.reset();say("ok","Thanks"+(nm?", "+nm:"")+" — got it. I’ll reply within 24 hours.")})
+  .then(function(r){if(!r.ok)throw 0;var nm=f.elements.namedItem("name").value.split(" ")[0];f.reset();pick(0);openDD(false);say("ok","Thanks"+(nm?", "+nm:"")+" — got it. I’ll reply within 24 hours.")})
   .catch(function(){say("err","Couldn’t send right now — please email arslanyounas@zohomail.com instead.")})
   .finally(function(){b.disabled=false});
 });
