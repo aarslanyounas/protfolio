@@ -8,6 +8,7 @@ platform can deploy its folder independently and have its own design.
 sites/
   vercel/    → https://arslanyounas.vercel.app        (light "crawl console" design, FormSubmit form)
   netlify/   → https://arslanyounas.netlify.app       (dark "search results" design, Netlify Forms)
+  cloudflare/→ https://arslanyounas.pages.dev          (orange "edge globe" bento design, FormSubmit form)
   _template/ → starting point for the next platform
 ```
 
@@ -17,6 +18,7 @@ sites/
 |---|---|---|---|---|---|
 | Vercel  | `arslanyounas` | `main` | `sites/vercel`  | none | `.` |
 | Netlify | `arslanyounas` | `main` | `sites/netlify` | none | `sites/netlify` |
+| Cloudflare Pages | `arslanyounas` | `main` | (blank) | none | `sites/cloudflare` |
 
 Pushing to `main` deploys only the platforms whose folder changed (both hosts are set to
 watch their own directory).
