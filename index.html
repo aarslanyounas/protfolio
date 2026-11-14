@@ -206,6 +206,28 @@ footer{border-top:1px solid var(--line);padding:28px 0}
 .foot{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font:400 12.5px/1.5 var(--mono);color:var(--muted)}
 .foot a:hover{color:var(--orange)}
 
+
+/* animation extras */
+.hero{position:relative;overflow:hidden}
+.glow{position:absolute;width:520px;height:520px;border-radius:50%;left:0;top:0;pointer-events:none;background:radial-gradient(circle,rgba(255,79,18,.16),rgba(255,79,18,0) 65%);transform:translate(-50%,-50%);opacity:0;transition:opacity .6s;z-index:0}
+.hero.on .glow{opacity:1}
+.hero-g{position:relative;z-index:1}
+.regions{margin-top:28px;display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.rg-l{font:500 12px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--faint);margin-right:4px}
+.rg{display:inline-flex;align-items:center;gap:8px;height:34px;padding:0 14px;border:1px solid var(--line);border-radius:999px;background:var(--surface);font:500 13.5px/1 var(--sans);opacity:0;transform:translateY(8px) scale(.9);transition:transform .6s var(--ease),opacity .6s,border-color .3s}
+.rg i{width:7px;height:7px;border-radius:50%;background:var(--orange);animation:blink 2.4s infinite}
+.rg:nth-child(3) i{animation-delay:.6s}.rg:nth-child(4) i{animation-delay:1.2s}.rg:nth-child(5) i{animation-delay:1.8s}
+.regions.in .rg{opacity:1;transform:none}.regions.in .rg:nth-child(2){transition-delay:.1s}.regions.in .rg:nth-child(3){transition-delay:.2s}.regions.in .rg:nth-child(4){transition-delay:.3s}.regions.in .rg:nth-child(5){transition-delay:.4s}
+.rg:hover{border-color:var(--orange)}
+@keyframes blink{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(255,79,18,.5)}50%{opacity:.55;box-shadow:0 0 0 5px rgba(255,79,18,0)}}
+.scan{position:absolute;left:0;right:0;top:48px;height:60px;background:linear-gradient(180deg,rgba(255,79,18,0),rgba(255,79,18,.08),rgba(255,79,18,0));animation:scan 4.5s linear infinite;pointer-events:none}
+@keyframes scan{0%{transform:translateY(0)}100%{transform:translateY(300px)}}
+.sticker{animation:bob 3.2s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-6px) rotate(-2deg)}}
+.console{transition:transform .6s var(--ease)}
+.mag{will-change:transform}
+.ch{opacity:1}
+
 @media (max-width:960px){
   .hero-g,.contact-g{grid-template-columns:1fr}
   .hero{padding-top:48px}
@@ -236,7 +258,7 @@ footer{border-top:1px solid var(--line);padding:28px 0}
       <span><span class="bn">Arslan Younas<b>.</b></span><span class="bt">AI SEO Strategist</span></span>
     </a>
     <div class="nav-r">
-      <span class="live"><span class="ping"></span>v2 · building</span>
+      <span class="live"><span class="ping"></span>Now building</span>
       <a class="btn btn-o" href="#enquire">Send an enquiry
         <svg class="trail" viewBox="0 0 24 16" fill="none" aria-hidden="true"><circle class="dt" cx="2" cy="8" r="1.3" fill="currentColor"/><circle class="dt2" cx="6.4" cy="8" r="1.5" fill="currentColor"/><path d="M10.6 8h10.6M16.4 3.2 21.2 8l-4.8 4.8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </a>
@@ -245,7 +267,7 @@ footer{border-top:1px solid var(--line);padding:28px 0}
 </header>
 
 <main>
-<section class="hero" aria-labelledby="title">
+<section class="hero" aria-labelledby="title"><div class="glow" id="glow" aria-hidden="true"></div>
   <div class="wrap hero-g">
     <div>
       <p class="eyebrow rv">Under construction <span>/</span> new site in the crawl queue</p>
@@ -258,6 +280,11 @@ footer{border-top:1px solid var(--line);padding:28px 0}
         <a class="btn btn-w" href="https://www.linkedin.com/in/arslanyounas/" target="_blank" rel="noopener me">
           <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
           Connect on LinkedIn</a>
+      </div>
+
+      <div class="regions rv" aria-label="Markets served">
+        <span class="rg-l">Serving</span>
+        <span class="rg"><i></i>USA</span><span class="rg"><i></i>UK</span><span class="rg"><i></i>UAE</span><span class="rg"><i></i>Europe</span>
       </div>
 
       <div class="meter rv" aria-label="Build progress">
@@ -273,8 +300,8 @@ footer{border-top:1px solid var(--line);padding:28px 0}
     </div>
 
     <div class="console rv" aria-label="Crawl log of the new site build">
-      <div class="console-h"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><p>crawl.log — arslanyounas/v2</p></div>
-      <span class="sticker" aria-hidden="true">Work in progress</span>
+      <div class="console-h"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><p>crawl.log — new site build</p></div>
+      <span class="sticker" aria-hidden="true">Work in progress</span><span class="scan" aria-hidden="true"></span>
       <ol class="log" id="log" aria-live="off">
         <li><span class="t">00:01</span><span>GET <b>/</b> <span class="ok">200 OK</span></span></li>
         <li><span class="t">00:02</span><span>render <b>JSON-LD</b> · Person, WebSite <span class="ok">valid</span></span></li>
@@ -283,19 +310,19 @@ footer{border-top:1px solid var(--line);padding:28px 0}
         <li><span class="t">00:09</span><span>write <b>/services</b> · AEO, GEO, technical <span class="wip">in progress</span></span></li>
         <li><span class="t">00:11</span><span>test <b>Core Web Vitals</b> · LCP, INP, CLS <span class="wip">running</span></span></li>
         <li><span class="t">00:13</span><span class="q">ask <b>ChatGPT</b> “who is arslan younas?” <span class="wip">cited</span></span></li>
-        <li><span class="t">00:15</span><span>deploy <b>v2</b> <span class="q">queued</span> <span class="caret" aria-hidden="true"></span></span></li>
+        <li><span class="t">00:15</span><span>deploy <b>new site</b> <span class="q">queued</span> <span class="caret" aria-hidden="true"></span></span></li>
       </ol>
       <div class="console-f">
-        <div><b>5+</b><span>Years in SEO</span></div>
-        <div><b>100K+</b><span>URLs diagnosed</span></div>
-        <div><b>4</b><span>Regions served</span></div>
+        <div><b data-count="5" data-suffix="+">5+</b><span>Years in SEO</span></div>
+        <div><b data-count="100" data-suffix="K+">100K+</b><span>URLs diagnosed</span></div>
+        <div><b data-count="4">4</b><span>Regions served</span></div>
       </div>
     </div>
   </div>
 </section>
 
 <div class="ticker" aria-hidden="true">
-  <div class="ticker-r" id="tick"><span>Technical SEO</span><span>AEO</span><span>GEO</span><span>Entity SEO</span><span>Structured data</span><span>Site architecture</span><span>Topical authority</span><span>Core Web Vitals</span><span>LLM visibility</span><span>USA · UK · MENA · Europe</span></div>
+  <div class="ticker-r" id="tick"><span>Technical SEO</span><span>AEO</span><span>GEO</span><span>Entity SEO</span><span>Structured data</span><span>Site architecture</span><span>Topical authority</span><span>Core Web Vitals</span><span>LLM visibility</span><span>USA · UK · UAE · Europe</span></div>
 </div>
 
 <section class="contact" id="enquire" aria-labelledby="enq">
@@ -377,6 +404,17 @@ setTimeout(runMeter,500);
 // crawl log
 var lines=document.querySelectorAll("#log li");
 if(reduce){lines.forEach(function(l){l.classList.add("on")})}else{lines.forEach(function(l,i){setTimeout(function(){l.classList.add("on")},700+i*520)})}
+
+// cursor glow
+var hero=document.querySelector(".hero"),glow=document.getElementById("glow");
+if(!reduce&&matchMedia("(pointer:fine)").matches){hero.addEventListener("pointermove",function(e){var r=hero.getBoundingClientRect();glow.style.left=(e.clientX-r.left)+"px";glow.style.top=(e.clientY-r.top)+"px";hero.classList.add("on")});hero.addEventListener("pointerleave",function(){hero.classList.remove("on")});
+// console tilt
+var con=document.querySelector(".console");con.addEventListener("pointermove",function(e){var r=con.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;con.style.transform="perspective(900px) rotateY("+(x*6)+"deg) rotateX("+(-y*6)+"deg)"});con.addEventListener("pointerleave",function(){con.style.transform=""});
+// magnetic buttons
+document.querySelectorAll(".btn").forEach(function(b){b.classList.add("mag");b.addEventListener("pointermove",function(e){var r=b.getBoundingClientRect();b.style.transform="translate("+((e.clientX-r.left-r.width/2)*.18)+"px,"+((e.clientY-r.top-r.height/2)*.25)+"px)"});b.addEventListener("pointerleave",function(){b.style.transform=""})})}
+// count-up stats
+var cio=new IntersectionObserver(function(es,o){es.forEach(function(e){if(!e.isIntersecting)return;o.unobserve(e.target);var el=e.target,n=+el.dataset.count,suf=el.dataset.suffix||"";if(reduce){el.textContent=n+suf;return}var s=null;(function st(t){if(!s)s=t;var p=Math.min((t-s)/1600,1);el.textContent=Math.round(n*(1-Math.pow(1-p,3)))+suf;if(p<1)requestAnimationFrame(st)})(performance.now())})},{threshold:.5});
+document.querySelectorAll("[data-count]").forEach(function(el){cio.observe(el)});
 // copy email on click (still opens mail client)
 var cp=document.getElementById("copied");document.querySelector("[data-copy]").addEventListener("click",function(){if(navigator.clipboard){navigator.clipboard.writeText("arslanyounas@zohomail.com").then(function(){cp.classList.add("on");setTimeout(function(){cp.classList.remove("on")},1800)}).catch(function(){})}});
 // form
