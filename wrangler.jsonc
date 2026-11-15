@@ -1,7 +1,7 @@
 // Cloudflare Workers config: serves the static site in sites/cloudflare.
 // The "name" must match the Worker project name in the Cloudflare dashboard.
 {
-  "name": "protfolio",
+  "name": "arslanyounas",
   "compatibility_date": "2026-11-01",
   "assets": {
     "directory": "./sites/cloudflare",
