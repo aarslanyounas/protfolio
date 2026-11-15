@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://arslanyounas.vercel.app/sitemap.xml
+Sitemap: https://www.arslanyounas.workers.dev/sitemap.xml
