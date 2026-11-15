@@ -10,6 +10,7 @@ sites/
   netlify/   → https://arslanyounas.netlify.app       (dark "search results" design, Netlify Forms)
   cloudflare/→ https://www.arslanyounas.workers.dev (radar hero, dark only, FormSubmit form)
   github-pages/→ https://aarslanyounas.github.io/protfolio (light "build in public" heatmap + git log, FormSubmit form)
+  render/    → https://arslanyounas.onrender.com      (orange "rendering" hero, AI-answer preview, two-step form)
   _template/ → starting point for the next platform
 ```
 
@@ -20,6 +21,7 @@ sites/
 | Vercel  | `arslanyounas` | `main` | `sites/vercel`  | none | `.` |
 | Netlify | `arslanyounas` | `main` | `sites/netlify` | none | `sites/netlify` |
 | GitHub Pages | repo Settings → Pages (Source: GitHub Actions) | `main` | `sites/github-pages` via `.github/workflows/github-pages.yml` | none | `sites/github-pages` |
+| Render | `arslanyounas` (Static Site, `render.yaml`) | `main` | `sites/render` | none | `.` |
 | Cloudflare Workers | `www` | `main` | repo root (`wrangler.jsonc` → `sites/cloudflare`) | none | `npx wrangler deploy` |
 
 Pushing to `main` deploys only the platforms whose folder changed (both hosts are set to
