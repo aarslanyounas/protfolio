@@ -61,6 +61,7 @@ header{position:absolute;top:0;left:0;right:0;z-index:10}
 /* hero with graph */
 .hero{position:relative;min-height:100vh;min-height:100svh;display:flex;align-items:center;overflow:hidden;isolation:isolate}
 #graph{position:absolute;inset:0;width:100%;height:100%;z-index:-1}
+.hero>.wrap{width:100%}
 .hero::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(ellipse 60% 70% at 25% 50%,rgba(11,11,10,.92) 30%,rgba(11,11,10,.35) 70%,transparent),linear-gradient(transparent 70%,var(--bg))}
 .hero-c{position:relative;padding:120px 0 90px;max-width:640px}
 .chip{display:inline-flex;align-items:center;gap:10px;padding:7px 14px 7px 8px;border-radius:999px;border:1px solid var(--line-2);background:rgba(22,22,20,.7);backdrop-filter:blur(8px);font:500 12.5px/1 var(--mono);color:var(--muted)}
