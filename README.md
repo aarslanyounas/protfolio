@@ -8,7 +8,7 @@ platform can deploy its folder independently and have its own design.
 sites/
   vercel/    → https://arslanyounas.vercel.app        (light "crawl console" design, FormSubmit form)
   netlify/   → https://arslanyounas.netlify.app       (dark "search results" design, Netlify Forms)
-  cloudflare/→ https://arslanyounas.arslanyounas.workers.dev (radar hero, light/dark themes, FormSubmit form)
+  cloudflare/→ https://www.arslanyounas.workers.dev (radar hero, light/dark themes, FormSubmit form)
   _template/ → starting point for the next platform
 ```
 
@@ -18,7 +18,7 @@ sites/
 |---|---|---|---|---|---|
 | Vercel  | `arslanyounas` | `main` | `sites/vercel`  | none | `.` |
 | Netlify | `arslanyounas` | `main` | `sites/netlify` | none | `sites/netlify` |
-| Cloudflare Workers | `arslanyounas` | `main` | repo root (`wrangler.jsonc` → `sites/cloudflare`) | none | `npx wrangler deploy` |
+| Cloudflare Workers | `www` | `main` | repo root (`wrangler.jsonc` → `sites/cloudflare`) | none | `npx wrangler deploy` |
 
 Pushing to `main` deploys only the platforms whose folder changed (both hosts are set to
 watch their own directory).
