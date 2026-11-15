@@ -8,7 +8,7 @@ platform can deploy its folder independently and have its own design.
 sites/
   vercel/    → https://arslanyounas.vercel.app        (light "crawl console" design, FormSubmit form)
   netlify/   → https://arslanyounas.netlify.app       (dark "search results" design, Netlify Forms)
-  cloudflare/→ https://www.arslanyounas.workers.dev (radar hero, light/dark themes, FormSubmit form)
+  cloudflare/→ https://www.arslanyounas.workers.dev (radar hero, dark only, FormSubmit form)
   _template/ → starting point for the next platform
 ```
 
@@ -25,8 +25,8 @@ watch their own directory).
 
 ## Shared rules for every site
 
-- **Canonical URL:** `https://arslanyounas.vercel.app/` is the primary address. Every other
-  platform's `<link rel="canonical">` points there to avoid duplicate-content issues.
+- **Canonical URL:** `https://arslanyounas.vercel.app/` is the primary address. Netlify
+  points its canonical there; Cloudflare uses its own URL (self-canonical).
 - **Contact:** arslanyounas@zohomail.com · https://www.linkedin.com/in/arslanyounas/ ·
   https://calendly.com/arslanyounas/30min
 - **Markets:** USA · UK · UAE · Europe
