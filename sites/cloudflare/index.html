@@ -388,7 +388,7 @@ f.addEventListener("submit",function(ev){
   if(!name||!email||!msg){say("err","Please add your name, email and a short message.");return}
   if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){say("err","That email doesn’t look right — please check it.");return}
   b.disabled=true;
-  fetch("https://formsubmit.co/ajax/arslanyounas@zohomail.com",{method:"POST",headers:{"Content-Type":"application/json",Accept:"application/json"},body:JSON.stringify({name:name,email:email,service:svc,message:msg,_subject:"New enquiry (pages.dev): "+svc+" — "+name,_template:"table",_replyto:email})})
+  fetch("https://formsubmit.co/ajax/arslanyounas@zohomail.com",{method:"POST",headers:{"Content-Type":"application/json",Accept:"application/json"},body:JSON.stringify({name:name,email:email,service:svc,message:msg,_subject:"New enquiry (workers.dev): "+svc+" — "+name,_template:"table",_replyto:email})})
   .then(function(r){return r.json().then(function(j){if(!r.ok||String(j.success)!=="true")throw 0})})
   .then(function(){f.reset();say("ok","Thanks, "+name.split(" ")[0]+" — your enquiry is in. I’ll reply within 24 hours.")})
   .catch(function(){say("err","The form couldn’t send just now — opening your email app instead.");location.href="mailto:arslanyounas@zohomail.com?subject="+encodeURIComponent("Enquiry: "+svc)+"&body="+encodeURIComponent("Name: "+name+"\nEmail: "+email+"\n\n"+msg)})

@@ -1,0 +1,33 @@
+# Deploys sites/github-pages to GitHub Pages whenever that folder changes on main.
+# One-time setup: repo Settings → Pages → Build and deployment → Source: "GitHub Actions".
+name: GitHub Pages
+
+on:
+  push:
+    branches: [main]
+    paths: ["sites/github-pages/**", ".github/workflows/github-pages.yml"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: sites/github-pages
+      - id: deployment
+        uses: actions/deploy-pages@v4
