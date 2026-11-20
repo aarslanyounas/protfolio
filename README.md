@@ -31,7 +31,7 @@ sites/
 | Firebase Hosting | site `arslanyounas` (`firebase.json`, `.firebaserc`) | — | `sites/firebase` | none | `npx firebase-tools deploy` (run inside `sites/firebase`) |
 | Bitbucket Cloud | repo `arslanyounas/arslanyounas.bitbucket.io` | `main` | `sites/bitbucket` | none | `git subtree push --prefix sites/bitbucket <bitbucket-repo-url> main` |
 | GitLab Pages | project `arslanyounas/arslanyounas.gitlab.io` (`.gitlab-ci.yml`) | `main` | `sites/gitlab` (serves `public/`) | CI `pages` job | `git subtree push --prefix sites/gitlab <gitlab-repo-url> main` |
-| Codeberg Pages | repo `arslanyounas/pages` | `main` | `sites/codeberg` | none | `git subtree split --prefix sites/codeberg -b codeberg-site` then `git push --force https://codeberg.org/arslanyounas/pages.git codeberg-site:main` |
+| Codeberg Pages (git-pages) | repo `arslanyounas/pages` + `git-pages` webhook | `pages` | `sites/codeberg` | none | `git subtree split --prefix sites/codeberg -b codeberg-site` then `git push --force https://codeberg.org/arslanyounas/pages.git codeberg-site:pages` |
 | Cloudflare Workers | `www` | `main` | repo root (`wrangler.jsonc` → `sites/cloudflare`) | none | `npx wrangler deploy` |
 
 Pushing to `main` deploys only the platforms whose folder changed (both hosts are set to
