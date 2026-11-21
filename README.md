@@ -16,6 +16,7 @@ sites/
   bitbucket/ → https://arslanyounas.bitbucket.io        (newspaper / editorial design, classifieds-style form)
   gitlab/    → https://arslanyounas.gitlab.io           (kinetic type, scroll-velocity marquee, floating service cards; site in public/)
   codeberg/  → https://arslanyounas.codeberg.page        ("SearchOS" desktop: draggable windows, dock, installer)
+  cloudflare-pages/ → https://arslanyounas.pages.dev     (dotted globe linking 4 markets, live market clocks)
   _template/ → starting point for the next platform
 ```
 
@@ -32,6 +33,7 @@ sites/
 | Bitbucket Cloud | repo `arslanyounas/arslanyounas.bitbucket.io` | `main` | `sites/bitbucket` | none | `git subtree push --prefix sites/bitbucket <bitbucket-repo-url> main` |
 | GitLab Pages | project `arslanyounas/arslanyounas.gitlab.io` (`.gitlab-ci.yml`) | `main` | `sites/gitlab` (serves `public/`) | CI `pages` job | `git subtree push --prefix sites/gitlab <gitlab-repo-url> main` |
 | Codeberg Pages (git-pages) | repo `arslanyounas/pages` + `git-pages` webhook | `pages` | `sites/codeberg` | none | `git subtree split --prefix sites/codeberg -b codeberg-site` then `git push --force https://codeberg.org/arslanyounas/pages.git codeberg-site:pages` |
+| Cloudflare Pages | project `arslanyounas` | `main` | root directory `sites/cloudflare-pages` | none | `.` |
 | Cloudflare Workers | `www` | `main` | repo root (`wrangler.jsonc` → `sites/cloudflare`) | none | `npx wrangler deploy` |
 
 Pushing to `main` deploys only the platforms whose folder changed (both hosts are set to
