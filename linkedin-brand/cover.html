@@ -1,97 +1,46 @@
 <!doctype html><html><head><meta charset="utf-8">
-<link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@500;600;700&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@500;600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{width:2000px;height:500px;overflow:hidden}
 .c{position:relative;width:2000px;height:500px;overflow:hidden;background:url(source-cover.webp) 0 0/2000px 500px no-repeat;font-family:Inter,sans-serif;color:#121211}
-/* new background over the old content area: white studio + soft aurora + fading grid */
-.bg{position:absolute;left:0;top:0;width:1640px;height:500px;background:#fdfdfd;
- -webkit-mask:linear-gradient(90deg,#000 93%,transparent);mask:linear-gradient(90deg,#000 93%,transparent)}
-.bg::before{content:"";position:absolute;inset:0;
- background-image:linear-gradient(rgba(0,0,0,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(0,0,0,.035) 1px,transparent 1px);background-size:34.25px 34.2px;background-position:27.5px 24.8px;
- -webkit-mask:radial-gradient(ellipse 60% 90% at 55% 55%,transparent 20%,#000 75%);mask:radial-gradient(ellipse 60% 90% at 55% 55%,transparent 20%,#000 75%)}
-.blob{position:absolute;border-radius:50%;filter:blur(60px);opacity:.55}
-.b1{width:520px;height:300px;left:760px;top:210px;background:radial-gradient(circle,#ffb38a,transparent 70%)}
-.b2{width:380px;height:260px;left:1160px;top:120px;background:radial-gradient(circle,#ffd2c7,transparent 70%)}
-.b3{width:300px;height:220px;left:-60px;top:-80px;background:radial-gradient(circle,#ffd0d2,transparent 70%)}
-.wm{position:absolute;left:1050px;top:-50px;font:900 360px/1 Inter;letter-spacing:-.06em;color:transparent;-webkit-text-stroke:1.5px rgba(18,18,17,.045)}
-
-/* left: red pill + mono chip */
-.pill{position:absolute;left:43px;top:44px;display:flex;align-items:center;gap:14px;height:54px;padding:0 30px 0 24px;border-radius:999px;background:linear-gradient(180deg,#ff3b3b,#e0141c);color:#fff;font:600 21px/1 Inter;box-shadow:0 14px 26px -12px rgba(224,20,28,.85),inset 0 1px 0 rgba(255,255,255,.35)}
-.pill i{width:10px;height:10px;border-radius:50%;background:#fff;box-shadow:0 0 0 5px rgba(255,255,255,.28)}
-.chip{position:absolute;left:43px;top:128px;display:inline-flex;align-items:center;gap:12px;padding:10px 18px 10px 10px;border-radius:999px;background:#fff;border:1.5px solid #e2ddd2;font:500 15px/1 "Geist Mono";color:#6b6a65;box-shadow:0 6px 16px -10px rgba(18,18,17,.25)}
-.chip .d{display:grid;place-items:center;width:24px;height:24px;border-radius:50%;background:#ffe8dd}
-.chip .d i{width:9px;height:9px;border-radius:50%;background:#ff4f12;box-shadow:0 0 0 4px rgba(255,79,18,.18)}
-.chip b{color:#121211;font-weight:600}
-.arrow{position:absolute;left:330px;top:70px;width:34px;height:60px}
-
-/* timeline + 2027 loading card */
+.bg{position:absolute;left:0;top:0;width:1630px;height:500px;background:#fdfdfd;
+ background-image:linear-gradient(rgba(0,0,0,.028) 1px,transparent 1px),linear-gradient(90deg,rgba(0,0,0,.028) 1px,transparent 1px);background-size:34.25px 34.2px;background-position:27.5px 24.8px;
+ -webkit-mask:linear-gradient(90deg,#000 94%,transparent);mask:linear-gradient(90deg,#000 94%,transparent)}
+.pill{position:absolute;left:43px;top:44px;display:flex;align-items:center;gap:13px;height:52px;padding:0 28px 0 23px;border-radius:999px;background:#e5232b;color:#fff;font:600 20px/1 Inter;box-shadow:0 8px 16px -10px rgba(229,35,43,.7)}
+.pill i{width:8px;height:8px;border-radius:50%;background:#fff}
+.motto{position:absolute;left:47px;top:134px;font:500 15px/1 "Geist Mono";letter-spacing:.06em;color:#3a3936}
+.motto span{color:#ff4f12}
 .ruler{position:absolute;left:760px;top:0;height:48px}
-.ruler span{position:absolute;top:0;width:2px;background:#121211}
-.yr{position:absolute;top:50px;font:500 17px/1 Inter;color:#121211}
-.now{position:absolute;left:712px;top:58px;padding:7px 15px;border-radius:999px;background:#121211;color:#fff;font:700 18px/1 Inter;box-shadow:0 8px 16px -8px rgba(18,18,17,.6)}
-.hang{position:absolute;left:612px;top:0;width:2px;height:22px;background:repeating-linear-gradient(#ff4f12 0 4px,transparent 4px 8px)}
-.next{position:absolute;left:532px;top:20px;width:162px;padding:11px 13px 12px;border-radius:14px;background:linear-gradient(160deg,#ff6a2b,#ff4f12 60%,#e0141c);color:#fff;transform:rotate(-4deg);box-shadow:0 16px 28px -14px rgba(255,79,18,.9)}
-.next .t{display:flex;justify-content:space-between;align-items:center;font:700 10.5px/1 "Geist Mono";letter-spacing:.14em;text-transform:uppercase;opacity:.9}
-.next .t i{width:7px;height:7px;border-radius:50%;background:#fff;box-shadow:0 0 0 3px rgba(255,255,255,.3)}
-.next b{display:block;margin-top:5px;font:900 38px/1 Inter;letter-spacing:-.04em}
-.next .bar{margin-top:8px;height:7px;border-radius:9px;background:rgba(255,255,255,.28);overflow:hidden}
-.next .bar i{display:block;height:100%;width:64%;border-radius:9px;background:repeating-linear-gradient(-45deg,#fff 0 5px,rgba(255,255,255,.7) 5px 10px)}
-.next .p{display:flex;justify-content:space-between;margin-top:6px;font:600 10.5px/1 "Geist Mono";opacity:.9}
-
-/* headline */
-.pre{position:absolute;left:792px;top:146px;font:400 31px/1 Inter;letter-spacing:-.01em;color:#2b2a27}
-.pre b{font-weight:700}
-h1{position:absolute;left:782px;top:180px;font:900 138px/1 Inter;letter-spacing:-.05em;white-space:nowrap}
-h1 .ai{color:#121211}
-h1 .en{background:linear-gradient(180deg,#ff8a3d 0%,#ff4f12 48%,#e0141c 100%);-webkit-background-clip:text;background-clip:text;color:transparent;
- filter:drop-shadow(3px 3px 0 #121211) drop-shadow(0 18px 18px rgba(224,20,28,.25))}
-h1 .ai{filter:drop-shadow(0 14px 14px rgba(18,18,17,.18))}
-.spark{position:absolute;left:1600px;top:186px;width:34px;height:34px;color:#ff4f12}
-
-/* 301 redirect sign */
-.r301{position:absolute;left:1060px;top:338px;display:flex;align-items:center;gap:14px}
-.r301 .lead{font:500 28px/1 Inter;color:#2b2a27;letter-spacing:-.01em}
-.sign{position:relative;display:flex;align-items:center;height:56px;padding:0 44px 0 18px;background:#121211;color:#fff;clip-path:polygon(0 0,calc(100% - 26px) 0,100% 50%,calc(100% - 26px) 100%,0 100%);box-shadow:0 10px 20px -10px rgba(0,0,0,.5)}
-.sign .n{font:900 34px/1 Inter;letter-spacing:-.03em;color:#ff4f12;margin-right:12px}
-.sign .m{font:600 11.5px/1.25 "Geist Mono";letter-spacing:.08em;text-transform:uppercase;color:#d9d6ce}
-.sign .m b{color:#fff;font-weight:700}
-
-/* handle ticket */
-.ticket{position:absolute;left:792px;top:420px;display:flex;align-items:stretch;height:56px;filter:drop-shadow(0 10px 16px rgba(18,18,17,.18))}
-.ticket .stub{display:grid;place-items:center;width:58px;background:#ff4f12;border-radius:12px 0 0 12px;position:relative}
-.ticket .stub svg{width:22px;height:22px}
-.ticket .body{display:flex;align-items:center;gap:14px;padding:0 20px;background:#fff;border:1.5px solid #121211;border-left:2px dashed #121211;border-radius:0 12px 12px 0}
-.ticket .body b{font:800 22px/1 Inter;letter-spacing:-.02em}
-.ticket .body small{font:600 12px/1 "Geist Mono";letter-spacing:.1em;text-transform:uppercase;color:#6b6a65;padding:6px 9px;border-radius:999px;background:#f3f1ec}
-.ticket .body .go{display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:#121211;color:#fff}
-.ticket .body .go svg{width:14px;height:14px}
+.ruler span{position:absolute;top:0;width:1.5px;background:#121211}
+.yr{position:absolute;top:50px;font:500 16px/1 Inter;color:#121211}
+.yr.now{font-weight:700}
+.yr.soon{color:#ff4f12;font-weight:600}
+.yr.soon small{display:block;margin-top:5px;font:500 11px/1 "Geist Mono";letter-spacing:.1em;text-transform:uppercase;color:#a3a19b}
+.pre{position:absolute;left:792px;top:150px;font:400 30px/1 Inter;color:#2b2a27;letter-spacing:-.01em}
+h1{position:absolute;left:786px;top:188px;font:800 128px/1 Inter;letter-spacing:-.045em;white-space:nowrap;color:#121211}
+h1 span{color:#ff4f12}
+.post{position:absolute;left:794px;top:342px;font:400 30px/1 Inter;color:#2b2a27;letter-spacing:-.01em}
+.post b{font-weight:700;color:#121211;border-bottom:3px solid #ff4f12;padding-bottom:2px}
+.handle{position:absolute;left:794px;top:426px;display:flex;align-items:center;gap:12px;font:500 16px/1 Inter;color:#6b6a65}
+.handle i{width:40px;height:1.5px;background:#c9c4b8}
+.handle b{padding:8px 14px;border:1.5px solid #121211;border-radius:999px;color:#121211;font-weight:600}
 </style></head><body><div class="c">
-<div class="bg"><span class="blob b1"></span><span class="blob b2"></span><span class="blob b3"></span><div class="wm">301</div></div>
-
+<div class="bg"></div>
 <div class="pill"><i></i>Let’s Move Forward</div>
-<svg class="arrow" viewBox="0 0 34 60" fill="none" stroke="#121211" stroke-width="1.5" stroke-dasharray="3 3" stroke-linecap="round"><path d="M10 6 C 30 18, 28 40, 6 54"/><path d="M5 11 L10 5 L15 11" stroke-dasharray="0"/></svg>
-<div class="chip"><span class="d"><i></i></span>turning strategy <b>into destiny</b></div>
-
-<span class="hang"></span>
-<div class="next"><div class="t"><span>coming soon</span><i></i></div><b>2027</b><div class="bar"><i></i></div><div class="p"><span>loading next</span><span>64%</span></div></div>
+<div class="motto">Turning strategy <span>→</span> into destiny</div>
 <div class="ruler" id="ruler"></div>
-
 <div class="pre">The future of search is moving to</div>
-<h1><span class="ai">AI </span><span class="en">ENGINES</span></h1>
-<svg class="spark" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 6.9L21 12l-6.6 3.1L12 22l-2.4-6.9L3 12l6.6-3.1z"/></svg>
-
-<div class="r301"><span class="lead">It’s time to</span><span class="sign"><span class="n">301</span><span class="m">moved permanently<br><b>→ AI search</b></span></span></div>
-
-<div class="ticket"><span class="stub"><svg viewBox="0 0 24 24" fill="#fff"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.5h4V21H3zM9.5 9.5h3.8v1.6h.1c.5-1 1.8-2 3.8-2 4 0 4.8 2.6 4.8 6V21h-4v-5.2c0-1.2 0-2.8-1.7-2.8s-2 1.3-2 2.7V21h-4z"/></svg></span><span class="body"><b>@arslanyounas</b><small>follow for AI SEO</small><span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></span></div>
+<h1>AI <span>Engines.</span></h1>
+<div class="post">It’s time to <b>301</b>.</div>
+<div class="handle"><i></i><b>@arslanyounas</b>AI SEO Strategist</div>
 </div>
 <script>
-var R=document.getElementById("ruler"),h="",gap=84,yrs=[2026,2025,2024,2023,2022,2021,2020,2019],C=document.querySelector(".c");
-for(var k=0;k<yrs.length;k++){var x=k*gap;h+='<span style="left:'+x+'px;height:'+(k==0?48:34)+'px;'+(k==0?'background:#ff4f12;width:3px':'')+'"></span>';
-  if(k<yrs.length-1)for(var j=1;j<4;j++)h+='<span style="left:'+(x+j*gap/4)+'px;height:18px"></span>';}
-for(var m=1;m<=4;m++)h+='<span style="left:'+(-m*gap/4)+'px;height:18px;background:repeating-linear-gradient(#ff4f12 0 3px,transparent 3px 6px)"></span>';
+var R=document.getElementById("ruler"),h="",gap=84,yrs=[2027,2026,2025,2024,2023,2022,2021,2020,2019],C=document.querySelector(".c");
+for(var k=0;k<yrs.length;k++){var x=(k-1)*gap,st=k==0?'background:repeating-linear-gradient(#ff4f12 0 4px,transparent 4px 8px);height:34px':k==1?'height:44px;width:2.5px':'height:34px';
+ h+='<span style="left:'+x+'px;'+st+'"></span>';
+ if(k<yrs.length-1)for(var j=1;j<4;j++)h+='<span style="left:'+(x+j*gap/4)+'px;height:16px;'+(k==0?'background:#f2c3ad':'')+'"></span>';}
 R.innerHTML=h;
-yrs.forEach(function(y,k){if(!k){var n=document.createElement("div");n.className="now";n.textContent="2026";C.appendChild(n);return}
- var d=document.createElement("div");d.className="yr";d.textContent=y;d.style.left=(760+k*gap-21)+"px";C.appendChild(d)});
+yrs.forEach(function(y,k){var d=document.createElement("div");d.className="yr"+(k==0?" soon":k==1?" now":"");d.innerHTML=y+(k==0?"<small>soon</small>":"");d.style.left=(760+(k-1)*gap-19)+"px";C.appendChild(d)});
 </script>
 </body></html>
