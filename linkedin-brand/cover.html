@@ -1,69 +1,46 @@
 <!doctype html><html><head><meta charset="utf-8">
-<link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@500;600&family=Geist:wght@400;500;600&family=Inter+Tight:wght@700;800;900&family=Caveat:wght@700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{width:1584px;height:396px;overflow:hidden;font-family:Geist,sans-serif}
-.c{position:relative;width:1584px;height:396px;overflow:hidden;color:#f2f0ea;
- background:radial-gradient(ellipse 40% 90% at 100% 100%,rgba(255,79,18,.55),transparent 60%),radial-gradient(ellipse 30% 80% at 30% 0%,rgba(255,79,18,.16),transparent 60%),#121211}
-.c::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.07) 1px,transparent 1px);background-size:22px 22px}
-/* timeline ruler */
-.ruler{position:absolute;left:520px;top:0;display:flex;align-items:flex-start;gap:0}
-.ruler .t{position:relative;width:14px;height:22px;border-left:1.5px solid #3a3936}
-.ruler .t.big{height:34px;border-left-color:#6b6a65}
-.ruler .t.now{height:46px;border-left:3px solid #ff4f12}
-.ruler .y{position:absolute;top:40px;left:-16px;font:600 14px/1 "Geist Mono";color:#6b6a65}
-.ruler .t.now .y{top:52px;left:-26px;padding:6px 10px;border-radius:999px;background:#ff4f12;color:#fff;font-size:15px}
-/* center copy */
-.mid{position:absolute;left:520px;top:118px;width:720px}
-.mid .pre{font:500 26px/1 Geist;color:#b9b6ae}
-.mid h1{margin-top:12px;font:900 112px/.86 "Inter Tight";letter-spacing:-.055em;white-space:nowrap}
-.mid h1 span{color:#ff4f12}
-.mid .post{margin-top:14px;display:flex;align-items:center;gap:16px;font:600 30px/1 "Inter Tight";letter-spacing:-.02em}
-.mid .post code{font:600 16px/1 "Geist Mono";padding:7px 11px;border-radius:8px;background:rgba(255,79,18,.15);color:#ff7a47;border:1px solid rgba(255,79,18,.4)}
-.handle{position:absolute;left:520px;bottom:26px;display:flex;align-items:center;gap:12px;font:500 16px/1 "Geist Mono";color:#a3a19b}
-.handle i{width:40px;height:1.5px;background:#6b6a65}
-.handle b{color:#f2f0ea;font-weight:600}
-/* left tag (sits above profile photo area) */
-.tag{position:absolute;left:44px;top:40px;display:inline-flex;align-items:center;gap:10px;padding:12px 20px 12px 14px;border-radius:999px;background:#ff4f12;color:#fff;font:700 18px/1 "Inter Tight";box-shadow:0 14px 30px -12px rgba(255,79,18,.8)}
-.tag i{width:10px;height:10px;border-radius:50%;background:#fff;box-shadow:0 0 0 4px rgba(255,255,255,.3)}
-.motto{position:absolute;left:46px;top:104px;font:700 30px/1 Caveat;color:#f2f0ea;transform:rotate(-2deg)}
-.motto svg{display:inline-block;width:40px;height:26px;vertical-align:middle;margin-left:4px}
-/* right engine stack */
-.eng{position:absolute;right:46px;top:34px;width:340px;display:grid;gap:10px}
-.eng .h{font:600 13px/1 "Geist Mono";color:#a3a19b;letter-spacing:.08em;text-transform:uppercase;display:flex;justify-content:space-between}
-.eng .h b{color:#ff7a47;font-weight:600}
-.row{display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:14px;background:rgba(255,255,255,.05);border:1px solid #2f2e2b;backdrop-filter:blur(4px)}
-.row .ic{flex:none;width:30px;height:30px;border-radius:9px;display:grid;place-items:center;background:#f2f0ea;color:#121211;font:800 15px/1 "Inter Tight"}
-.row .ic.o{background:#ff4f12;color:#fff}
-.row span:not(.ic){flex:1;font:600 17px/1 "Inter Tight";letter-spacing:-.01em}
-.row em{font:600 12px/1 "Geist Mono";font-style:normal;padding:5px 8px;border-radius:999px;background:rgba(47,179,107,.16);color:#7fe0a6}
-.row em.w{background:rgba(255,79,18,.16);color:#ff9b73}
-.mk{position:absolute;right:46px;bottom:26px;display:flex;gap:8px}
-.mk span{padding:8px 12px;border-radius:999px;border:1px solid #3a3936;font:600 13px/1 "Geist Mono";color:#d9d6ce}
+body{width:2000px;height:500px;overflow:hidden;font-family:Inter,sans-serif}
+.c{position:relative;width:2000px;height:500px;overflow:hidden;background:url(source-cover.webp) 0 0/2000px 500px no-repeat}
+/* clean panel over old content, recreating the same grid */
+.clean{position:absolute;left:0;top:0;width:1620px;height:500px;background:#fdfdfd;
+ background-image:linear-gradient(rgba(0,0,0,.028) 1px,transparent 1px),linear-gradient(90deg,rgba(0,0,0,.028) 1px,transparent 1px);background-size:34.25px 34.2px;background-position:27.5px 24.8px;
+ -webkit-mask:linear-gradient(90deg,#000 94%,transparent);mask:linear-gradient(90deg,#000 94%,transparent)}
+.pill{position:absolute;left:43px;top:44px;width:272px;height:52px;border-radius:999px;background:linear-gradient(180deg,#ff6a2b,#f2470d);color:#fff;display:flex;align-items:center;gap:14px;padding-left:24px;font:600 20px/1 Inter;box-shadow:0 10px 18px -8px rgba(242,71,13,.75),inset 0 1px 0 rgba(255,255,255,.25)}
+.pill i{width:9px;height:9px;border-radius:50%;background:#fff}
+.motto{position:absolute;left:49px;top:137px;font:600 19px/1 Inter;color:#121211;letter-spacing:-.005em}
+.arrow{position:absolute;left:326px;top:82px;width:30px;height:70px}
+.ruler{position:absolute;left:740px;top:0;height:48px}
+.ruler span{position:absolute;top:0;width:2px;background:#121211}
+.yr{position:absolute;top:47px;font:500 17px/1 Inter;color:#121211}
+.now{position:absolute;left:692px;top:58px;width:96px;height:38px}
+.now svg{position:absolute;inset:-4px -6px;width:108px;height:46px}
+.now b{position:absolute;inset:0;display:grid;place-items:center;font:700 21px/1 Inter;color:#121211}
+.pre{position:absolute;left:721px;top:166px;font:400 33px/1 Inter;color:#121211;letter-spacing:-.01em}
+h1{position:absolute;left:706px;top:200px;font:800 128px/1 Inter;letter-spacing:-.035em;white-space:nowrap;
+ background:linear-gradient(90deg,#ff8a3d 0%,#ff4f12 38%,#c93a07 66%,#121211 100%);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 6px 5px rgba(18,18,17,.18))}
+.post{position:absolute;right:582px;top:325px;font:400 32px/1 Inter;color:#121211;letter-spacing:-.01em}
+.handle{position:absolute;left:977px;top:430px;display:flex;align-items:center;gap:6px;font:500 17px/1 Inter;color:#121211}
+.handle i{width:60px;height:1.4px;background:#121211}
 </style></head><body><div class="c">
-  <span class="tag"><i></i>Let’s move forward</span>
-  <div class="motto">Turning strategy into visibility <svg viewBox="0 0 40 26" fill="none" stroke="#ff4f12" stroke-width="2.4" stroke-linecap="round"><path d="M2 20c10-2 22-8 34-16M28 3l8 1-2 8"/></svg></div>
-
-  <div class="ruler" id="ruler"></div>
-
-  <div class="mid">
-    <div class="pre">Search is moving to</div>
-    <h1>AI <span>ENGINES.</span></h1>
-    <div class="post">It’s time to 301. <code>301 → ranked + cited</code></div>
-  </div>
-  <div class="handle"><i></i><b>@aarslanyounas</b> · Sr. AI SEO Strategist</div>
-
-  <div class="eng">
-    <div class="h"><span>visibility.scan</span><b>● live</b></div>
-    <div class="row"><span class="ic">G</span><span>Google Search</span><em>ranked</em></div>
-    <div class="row"><span class="ic o">✦</span><span>ChatGPT · Gemini</span><em>cited</em></div>
-    <div class="row"><span class="ic">P</span><span>Perplexity · AI Overviews</span><em class="w">named</em></div>
-  </div>
-  <div class="mk"><span>USA</span><span>UK</span><span>UAE</span><span>Europe</span></div>
+<div class="clean"></div>
+<div class="pill"><i></i>Let’s Move Forward</div>
+<svg class="arrow" viewBox="0 0 30 70" fill="none" stroke="#121211" stroke-width="1.4" stroke-dasharray="3 3" stroke-linecap="round"><path d="M10 6 C 26 20, 26 46, 6 64"/><path d="M5 10 L10 5 L14 11" stroke-dasharray="0"/></svg>
+<div class="motto">Turning Strategy Into Destiny</div>
+<div class="ruler" id="ruler"></div>
+<div class="now"><svg viewBox="0 0 108 46"><defs><linearGradient id="g" x1="0" x2="1"><stop offset="0" stop-color="#ff4f12"/><stop offset="1" stop-color="#121211"/></linearGradient></defs><ellipse cx="54" cy="23" rx="51" ry="19" fill="none" stroke="url(#g)" stroke-width="3.2" transform="rotate(-6 54 23)"/></svg><b>2026</b></div>
+<div class="pre">Future is moving</div>
+<h1>AI ENGINES</h1>
+<div class="post">It’s time to 301.</div>
+<div class="handle"><i></i>@arslanyounas</div>
 </div>
 <script>
-var r=document.getElementById("ruler"),years=[2026,2025,2024,2023,2022,2021,2020,2019],h="";
-years.forEach(function(y,i){h+='<span class="t '+(i==0?'now':'big')+'"><span class="y">'+y+'</span></span>';if(i<years.length-1)for(var k=0;k<4;k++)h+='<span class="t"></span>'});
-r.innerHTML=h;
+var R=document.getElementById("ruler"),h="",gap=86.4,yrs=[2026,2025,2024,2023,2022,2021,2020,2019];
+for(var k=0;k<yrs.length;k++){var x=k*gap;h+='<span style="left:'+x+'px;height:'+(k==0?48:34)+'px"></span>';
+  if(k<yrs.length-1)for(var m=1;m<4;m++)h+='<span style="left:'+(x+m*gap/4)+'px;height:20px"></span>';}
+R.innerHTML=h;var C=document.querySelector(".c");
+yrs.forEach(function(y,k){if(!k)return;var d=document.createElement("div");d.className="yr";d.textContent=y;d.style.left=(740+k*gap-21)+"px";C.appendChild(d)});
 </script>
 </body></html>
