@@ -1,73 +1,213 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"><title>Muhammad Arslan Younas — Resume</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
-@page{size:A4;margin:16mm 16mm 14mm}
+@page{size:A4;margin:0}
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:Inter,Arial,sans-serif;color:#1a1a19;font-size:10.4pt;line-height:1.45}
+html,body{width:210mm}
+body{font-family:Inter,Arial,sans-serif;color:#1c1c1b;font-size:9.2pt;line-height:1.42;-webkit-print-color-adjust:exact;print-color-adjust:exact}
 a{color:inherit;text-decoration:none}
-header{display:flex;justify-content:space-between;align-items:flex-start;gap:20px;padding-bottom:12px;border-bottom:1.6px solid #121211}
-h1{font:800 23pt/1.02 Inter;letter-spacing:-.02em;text-transform:uppercase}
-.role{margin-top:6px;font:600 12pt/1.2 Inter;color:#ff4f12}
-.contact{text-align:right;font-size:9.6pt;line-height:1.75;color:#3a3936}
-.contact b{font-weight:600;color:#121211}
-h2{margin:15px 0 7px;font:700 10.2pt/1 Inter;letter-spacing:.12em;text-transform:uppercase;color:#121211;display:flex;align-items:center;gap:8px}
-h2::before{content:"";width:14px;height:2.5px;background:#ff4f12}
+.page{width:210mm;height:297mm;display:grid;grid-template-columns:1fr 68mm;position:relative;overflow:hidden;break-after:page}
+.page:last-child{break-after:auto}
+.main{padding:14mm 9mm 12mm 13mm}
+.side{background:#f6f3ee;padding:14mm 9mm 12mm 8mm;border-left:1px solid #e6e1d6}
+.page::before{content:"";position:absolute;left:0;top:0;width:100%;height:4.5px;background:linear-gradient(90deg,#121211 0 30%,#ff4f12 30% 100%)}
+
+/* header */
+.head h1{font:900 25pt/.98 Inter;letter-spacing:-.03em;text-transform:uppercase;color:#121211}
+.head .role{margin-top:7px;display:flex;align-items:center;gap:8px;font:700 11pt/1.2 Inter;color:#121211}
+.head .role span{color:#ff4f12}
+.head .role i{width:5px;height:5px;border-radius:50%;background:#d6d0c2}
+.tagline{margin-top:7px;font-size:9pt;color:#6b6a65}
+
+h2{margin:13px 0 7px;display:flex;align-items:center;gap:8px;font:800 8.6pt/1 Inter;letter-spacing:.14em;text-transform:uppercase;color:#121211}
+h2::after{content:"";flex:1;height:1px;background:#e2ddd2}
+h2 b{display:inline-grid;place-items:center;width:17px;height:17px;border-radius:5px;background:#ff4f12;color:#fff;font-size:7.6pt;letter-spacing:0}
+.side h2{margin:12px 0 6px}
+.side h2::after{background:#ded8cb}
+.side h2:first-child{margin-top:0}
 p{text-align:justify}
-.edu,.job{display:flex;justify-content:space-between;gap:12px}
-.edu{margin-bottom:6px}
-.edu b,.job b{font-weight:700}
-.date{white-space:nowrap;color:#6b6a65;font-size:9.6pt}
-.job{margin-top:9px}
-.sub{color:#6b6a65;font-size:9.8pt}
-ul{margin:4px 0 0 16px}
-li{margin:2px 0}
-.cols{display:grid;grid-template-columns:1fr 1fr;gap:4px 26px}
-.cols h3{margin-top:8px;font:700 10pt/1.2 Inter}
-.cols ul{margin-top:2px}
-section{break-inside:auto}
-.job-block{break-inside:avoid}
-.foot{margin-top:16px;text-align:center;font-weight:600;font-size:9.6pt;color:#3a3936}
+
+/* results */
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
+.kpi{border:1px solid #e6e1d6;border-radius:8px;padding:7px 8px;background:#fff}
+.kpi b{display:block;font:900 15pt/1 Inter;letter-spacing:-.03em;color:#ff4f12}
+.kpi span{display:block;margin-top:4px;font-size:7.4pt;line-height:1.3;color:#4a4945}
+
+/* experience */
+.job{position:relative;padding-left:13px;margin-top:9px;break-inside:avoid}
+.job::before{content:"";position:absolute;left:0;top:4px;width:7px;height:7px;border-radius:50%;background:#fff;border:2px solid #ff4f12}
+.job::after{content:"";position:absolute;left:4.2px;top:14px;bottom:-9px;width:1px;background:#e2ddd2}
+.job:last-child::after{display:none}
+.jt{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.jt b{font:800 10pt/1.2 Inter;color:#121211}
+.jt .d{flex:none;font:600 8pt/1 Inter;color:#ff4f12;background:#fff0e8;padding:3px 7px;border-radius:999px}
+.co{margin-top:2px;font-size:8.6pt;color:#6b6a65}
+.co strong{color:#2b2a27;font-weight:600}
+ul{margin:4px 0 0 13px}
+li{margin:1.6px 0}
+li::marker{color:#ff4f12}
+
+/* education */
+.edu{display:flex;justify-content:space-between;gap:8px;margin-top:6px}
+.edu b{font-weight:700;color:#121211}
+.edu span{font-size:8.6pt;color:#6b6a65}
+.edu .d{flex:none;font-weight:600;font-size:8pt;color:#6b6a65}
+
+/* sidebar */
+.contact{display:grid;gap:6px;font-size:8.4pt}
+.contact div{display:flex;align-items:center;gap:7px;word-break:break-word}
+.contact svg{width:12px;height:12px;flex:none;color:#ff4f12}
+.chips{display:flex;flex-wrap:wrap;gap:4px}
+.chips span{padding:3px 7px;border-radius:999px;background:#fff;border:1px solid #e2ddd2;font-size:7.7pt;line-height:1.25;color:#2b2a27}
+.chips.o span{background:#fff0e8;border-color:#ffd0bd;color:#b8390a;font-weight:600}
+.chips.k span{background:#121211;border-color:#121211;color:#fff}
+.lbl{margin:7px 0 4px;font:700 7.4pt/1 Inter;letter-spacing:.08em;text-transform:uppercase;color:#6b6a65}
+.cert{margin:0;list-style:none}
+.cert li{position:relative;padding-left:12px;margin:3.5px 0;font-size:8.2pt;line-height:1.3}
+.cert li::before{content:"";position:absolute;left:0;top:4px;width:6px;height:6px;border-radius:2px;background:#ff4f12}
+.cert small{display:block;color:#6b6a65;font-size:7.4pt}
+.lang{display:grid;gap:5px}
+.lang div{display:flex;justify-content:space-between;align-items:center;font-size:8.4pt}
+.lang .bar{width:70px;height:5px;border-radius:9px;background:#e2ddd2;overflow:hidden}
+.lang .bar i{display:block;height:100%;background:#ff4f12;border-radius:9px}
+.foot{position:absolute;left:13mm;bottom:7mm;font-size:7.4pt;color:#a3a19b}
 </style></head><body>
-<header>
-  <div><h1>Muhammad<br>Arslan Younas</h1><div class="role">AI Search &amp; SEO Strategist</div></div>
-  <div class="contact"><b>arslanyounas@zohomail.com</b><br>linkedin.com/in/arslanyounas<br>arslanyounas.vercel.app<br>USA · UK · UAE · Europe (remote)</div>
-</header>
 
-<h2>About</h2>
-<p>AI Search and SEO Strategist with 5+ years of experience helping businesses across the USA, UK, UAE, and Europe grow their organic presence in an era where search is no longer just Google. I build search systems that work across technical SEO, structured content, topical authority, GEO, AEO, and LLM visibility, so brands stay discoverable whether the answer comes from a search engine or an AI model.</p>
-<p style="margin-top:6px">My work is grounded in clean execution, data-backed decisions, and strategies built to last beyond the next algorithm update.</p>
+<!-- PAGE 1 -->
+<div class="page">
+  <div class="main">
+    <div class="head">
+      <h1>Muhammad<br>Arslan Younas</h1>
+      <div class="role">Senior SEO Specialist <i></i> <span>AI Search &amp; SEO Strategist</span></div>
+      <div class="tagline">Technical SEO · GEO · AEO · LLM Visibility · Topical Authority</div>
+    </div>
 
-<h2>Experience</h2>
-<div class="job-block"><div class="job"><div><b>Sr. SEO Executive</b> – Sale &amp; Marketing Department<br><span class="sub">Cyber Nest (USA Based)</span></div><span class="date">May 2024 – Present</span></div>
-<ul><li>Executed SEO campaigns increasing organic visibility and lead generation.</li><li>Improved user engagement through strategic content and intent alignment.</li><li>Implemented structured data &amp; schema markup to improve SERP CTR.</li><li>Optimized site architecture for enhanced crawlability and indexing.</li><li>Built content performance tracking systems for data-driven optimization.</li><li>Improved mobile performance and accessibility across devices.</li><li>Leveraged AI tools to automate SEO workflows and improve scalability.</li><li>Automated SEO reporting dashboards for faster insights and decisions.</li></ul></div>
+    <h2><b>01</b>Profile</h2>
+    <p>AI Search and SEO Strategist with 5+ years of experience helping businesses across the USA, UK, UAE, and Europe grow their organic presence in an era where search is no longer just Google. I build search systems that work across technical SEO, structured content, topical authority, GEO, AEO, and LLM visibility, so brands stay discoverable whether the answer comes from a search engine or an AI model. My work is grounded in clean execution, data-backed decisions, and strategies built to last beyond the next algorithm update.</p>
 
-<div class="job-block"><div class="job"><div><b>SEO Analyst</b> – Offshore Collaboration Team<br><span class="sub">Clicktap – Intelliscence (UAE Based)</span></div><span class="date">May 2023 – May 2024</span></div>
-<ul><li>Aligned SEO strategies with broader digital marketing objectives.</li><li>Developed engagement-driven content strategies.</li><li>Collaborated with design &amp; development teams to improve UX and usability.</li><li>Streamlined campaign workflows and reporting processes.</li><li>Conducted market research and competitive analysis.</li><li>Supported product launches with integrated SEO &amp; marketing strategies.</li></ul></div>
+    <h2><b>02</b>Key Results</h2>
+    <div class="kpis">
+      <div class="kpi"><b>+60%</b><span>organic traffic after a full SEO overhaul</span></div>
+      <div class="kpi"><b>+50%</b><span>organic visibility in high-competition categories</span></div>
+      <div class="kpi"><b>+35%</b><span>organic traffic in first quarter of a new role</span></div>
+      <div class="kpi"><b>100K+</b><span>URLs diagnosed in one indexing recovery</span></div>
+    </div>
 
-<div class="job-block"><div class="job"><div><b>SEO Specialist</b> – Development &amp; Marketing Department<br><span class="sub">Tech Nerds (USA Based)</span></div><span class="date">Oct 2021 – May 2023</span></div>
-<ul><li>Strengthened brand authority through technical and content SEO initiatives.</li><li>Improved website performance via structured optimization strategies.</li><li>Conducted market and competitor research for strategic positioning.</li><li>Implemented workflow enhancements to improve team productivity.</li><li>Collaborated closely with developers to enhance site structure &amp; performance.</li></ul></div>
+    <h2><b>03</b>Experience</h2>
+    <div class="job"><div class="jt"><b>Sr. SEO Executive</b><span class="d">May 2024 – Present</span></div>
+      <div class="co"><strong>Cyber Nest</strong> · USA based · Sale &amp; Marketing Department</div>
+      <ul><li>Executed SEO campaigns increasing organic visibility and lead generation.</li><li>Improved user engagement through strategic content and intent alignment.</li><li>Implemented structured data &amp; schema markup to improve SERP CTR.</li><li>Optimized site architecture for enhanced crawlability and indexing.</li><li>Built content performance tracking systems for data-driven optimization.</li><li>Improved mobile performance and accessibility across devices.</li><li>Leveraged AI tools to automate SEO workflows and improve scalability.</li><li>Automated SEO reporting dashboards for faster insights and decisions.</li></ul></div>
 
-<div class="job-block"><div class="job"><div><b>SEO Intern</b> – Social Media &amp; PR Team<br><span class="sub">Ideoversity (Pakistan Based)</span></div><span class="date">Jun 2021 – Oct 2021</span></div>
-<ul><li>Conducted keyword research and content optimization.</li><li>Optimized meta tags, headers, and internal linking structures.</li><li>Performed content audits and gap analysis.</li><li>Tracked SEO performance using SEMrush, Moz, and Google Search Console.</li></ul></div>
+    <div class="job"><div class="jt"><b>SEO Analyst</b><span class="d">May 2023 – May 2024</span></div>
+      <div class="co"><strong>Clicktap – Intelliscence</strong> · UAE based · Offshore Collaboration Team</div>
+      <ul><li>Aligned SEO strategies with broader digital marketing objectives.</li><li>Developed engagement-driven content strategies.</li><li>Collaborated with design &amp; development teams to improve UX and usability.</li><li>Streamlined campaign workflows and reporting processes.</li><li>Conducted market research and competitive analysis.</li><li>Supported product launches with integrated SEO &amp; marketing strategies.</li></ul></div>
 
-<div class="job-block">
-<h2>Education</h2>
-<div class="edu"><div><b>BS Computer Science</b><br><span class="sub">NCBA&amp;E</span></div><span class="date">2024 – Cont.</span></div>
-<div class="edu"><div><b>APD – Computer Science</b><br><span class="sub">Superior University</span></div><span class="date">2022 – 2024</span></div>
-<div class="edu"><div><b>ICS – Intermediate</b><br><span class="sub">Govt. College of Science</span></div><span class="date">2019 – 2020</span></div>
+    <div class="job"><div class="jt"><b>SEO Specialist</b><span class="d">Oct 2021 – May 2023</span></div>
+      <div class="co"><strong>Tech Nerds</strong> · USA based · Development &amp; Marketing Department</div>
+      <ul><li>Strengthened brand authority through technical and content SEO initiatives.</li><li>Improved website performance via structured optimization strategies.</li><li>Conducted market and competitor research for strategic positioning.</li><li>Implemented workflow enhancements to improve team productivity.</li><li>Collaborated closely with developers to enhance site structure &amp; performance.</li></ul></div>
+  </div>
+
+  <aside class="side">
+    <h2>Contact</h2>
+    <div class="contact">
+      <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>info.arslanyounas@gmail.com</div>
+      <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>+92 320 0045019</div>
+      <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>A-Block Sabzazar, Lahore</div>
+      <div><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.5h4V21H3zM9.5 9.5h3.8v1.6h.1c.5-1 1.8-2 3.8-2 4 0 4.8 2.6 4.8 6V21h-4v-5.2c0-1.2 0-2.8-1.7-2.8s-2 1.3-2 2.7V21h-4z"/></svg>linkedin.com/in/arslanyounas</div>
+      <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 3.8 5.7 3.8 9s-1.3 6.3-3.8 9c-2.5-2.7-3.8-5.7-3.8-9S9.5 5.7 12 3z"/></svg>arslanyounas.vercel.app</div>
+    </div>
+
+    <h2>AI Search</h2>
+    <div class="chips o"><span>GEO</span><span>AEO</span><span>LLM Optimization</span><span>AI Overviews</span><span>Entity SEO</span><span>Voice &amp; Conversational Search</span><span>AI-Assisted Content</span></div>
+
+    <h2>SEO Expertise</h2>
+    <div class="chips"><span>Technical SEO</span><span>On-Page SEO</span><span>Off-Page SEO</span><span>Local SEO</span><span>International SEO</span><span>E-commerce SEO</span><span>Keyword Research &amp; Clustering</span><span>Topical Authority</span><span>Content Strategy</span><span>Link Building &amp; Digital PR</span><span>SERP &amp; Competitor Analysis</span><span>SEO Roadmaps</span></div>
+
+    <h2>Technical Stack</h2>
+    <div class="chips"><span>Core Web Vitals</span><span>Crawl &amp; Indexing</span><span>Site Architecture</span><span>Internal Linking</span><span>Schema / JSON-LD</span><span>Redirects &amp; Canonicals</span><span>Hreflang</span><span>Mobile-First</span><span>XML Sitemaps</span><span>Robots.txt</span></div>
+    <div class="lbl">Languages &amp; Markup</div>
+    <div class="chips k"><span>HTML</span><span>CSS</span><span>JSON-LD</span><span>JavaScript (basic)</span><span>Regex</span></div>
+
+    <h2>Platforms</h2>
+    <div class="chips"><span>WordPress</span><span>Shopify</span><span>Webflow</span><span>Wix</span><span>Framer</span><span>Google Business Profile</span></div>
+
+    <h2>AI Tools</h2>
+    <div class="chips o"><span>ChatGPT</span><span>Claude</span><span>Gemini</span><span>Perplexity</span></div>
+  </aside>
+  <div class="foot">Muhammad Arslan Younas · Resume · Page 1 of 2</div>
 </div>
 
-<div class="job-block">
-<h2>Expertise</h2>
-<div class="cols">
-<div><h3>SEO Strategy</h3><ul><li>Technical SEO Audits</li><li>On-Page &amp; Off-Page SEO</li><li>Local &amp; International SEO</li><li>Keyword Research &amp; Clustering</li><li>SERP &amp; Competitor Analysis</li><li>SEO Roadmap Development</li></ul></div>
-<div><h3>Technical SEO</h3><ul><li>Crawl and Index Optimization</li><li>Core Web Vitals and Site Performance</li><li>Schema and Structured Data</li><li>Site Architecture and Internal Linking</li><li>Mobile-First Optimization</li><li>Redirect and Canonical Management</li></ul></div>
-<div><h3>AI and Search Innovation</h3><ul><li>GEO (Generative Engine Optimization)</li><li>AEO (Answer Engine Optimization)</li><li>LLM Visibility and Optimization</li><li>Entity-Based SEO</li><li>AI-Assisted Content Strategy</li><li>Voice and Conversational Search</li></ul></div>
-<div><h3>Content and Authority</h3><ul><li>Topical Authority Building</li><li>Topic Clustering</li><li>Content Strategy and Gap Analysis</li><li>Link Acquisition and Digital PR</li></ul>
-<h3>Local SEO</h3><ul><li>Google Business Profile Optimization</li><li>Multi-Region and Multi-Language SEO</li><li>Citation Building and Local Authority</li></ul></div>
-<div><h3>Project Management</h3><ul><li>KPI Tracking and Reporting</li><li>Agile Workflow Management</li><li>Team Mentoring and Training</li><li>Jira, ClickUp, Trello, Notion</li></ul>
-<h3>Certifications</h3><ul><li>Google Digital Garage</li><li>Google Analytics</li><li>Google Ads</li><li>Ahrefs SEO Certification</li></ul></div>
-<div><h3>Tools</h3><ul><li>Google Analytics 4 and Search Console</li><li>Ahrefs and SEMrush</li><li>Screaming Frog &amp; PageSpeed Insights</li><li>Looker Studio and Microsoft Clarity</li><li>Google Tag Manager</li><li>Rank Math and Yoast SEO</li></ul></div>
-</div></div>
-<div class="foot">References available upon request.</div>
+<!-- PAGE 2 -->
+<div class="page">
+  <div class="main">
+    <h2 style="margin-top:0"><b>03</b>Experience (continued)</h2>
+    <div class="job"><div class="jt"><b>SEO Intern</b><span class="d">Jun 2021 – Oct 2021</span></div>
+      <div class="co"><strong>Ideoversity</strong> · Pakistan based · Social Media &amp; PR Team</div>
+      <ul><li>Conducted keyword research and content optimization.</li><li>Optimized meta tags, headers, and internal linking structures.</li><li>Performed content audits and gap analysis.</li><li>Tracked SEO performance using SEMrush, Moz, and Google Search Console.</li></ul></div>
+
+    <h2><b>04</b>Education</h2>
+    <div class="edu"><div><b>BS Computer Science</b><br><span>NCBA&amp;E, Lahore</span></div><span class="d">2024 – Final Year</span></div>
+    <div class="edu"><div><b>APD – Computer Science</b><br><span>Superior University, Lahore</span></div><span class="d">2022 – 2024</span></div>
+    <div class="edu"><div><b>ICS – Intermediate</b><br><span>Govt. College of Science, Lahore</span></div><span class="d">2019 – 2020</span></div>
+
+    <h2><b>05</b>Certifications</h2>
+    <ul class="cert">
+      <li>Fundamentals of Digital Marketing<small>Google Digital Garage</small></li>
+      <li>Google Analytics Certification<small>Google</small></li>
+      <li>Google Ads – Measurement Certification<small>Google</small></li>
+      <li>AI-Powered Performance Ads Certification<small>Google</small></li>
+      <li>Ahrefs SEO Certification<small>Ahrefs</small></li>
+      <li>SEO &amp; Technical SEO Skill Assessments (passed)<small>LinkedIn</small></li>
+    </ul>
+
+    <h2><b>06</b>How I Work</h2>
+    <div class="kpis" style="grid-template-columns:repeat(2,1fr)">
+      <div class="kpi"><b style="font-size:11pt">Audit</b><span>Find what stops search engines and AI from understanding the site.</span></div>
+      <div class="kpi"><b style="font-size:11pt">Build</b><span>Ship technical fixes, content and schema in priority order.</span></div>
+      <div class="kpi"><b style="font-size:11pt">Measure</b><span>Track rankings, AI mentions and conversions in clear dashboards.</span></div>
+      <div class="kpi"><b style="font-size:11pt">Scale</b><span>Automate the repeatable parts with AI-powered workflows.</span></div>
+    </div>
+
+    <h2><b>07</b>Industries</h2>
+    <div class="chips"><span>SaaS &amp; Technology</span><span>E-commerce</span><span>Education &amp; E-learning</span><span>Digital Agencies</span><span>Local Services</span><span>B2B Services</span></div>
+
+    <h2><b>08</b>Projects</h2>
+    <div class="job" style="margin-top:4px"><div class="jt"><b>Multi-Platform Portfolio Network</b><span class="d">2026</span></div>
+      <div class="co">arslanyounas.vercel.app · netlify.app · web.app · gitlab.io · codeberg.page · bitbucket.io</div>
+      <ul><li>Designed and shipped 10+ distinct portfolio sites across Vercel, Netlify, Cloudflare, Firebase, GitHub Pages, GitLab, Codeberg, Bitbucket, Surge and Framer.</li><li>Each site built SEO-first: canonical tags, Person schema (JSON-LD), XML sitemaps, robots.txt, Open Graph and fast static delivery.</li><li>Managed deployments with Git, CI pipelines and webhooks from a single repository.</li></ul></div>
+  </div>
+
+  <aside class="side">
+    <h2>SEO Tools</h2>
+    <div class="lbl" style="margin-top:0">Research &amp; Audit</div>
+    <div class="chips"><span>Ahrefs</span><span>SEMrush</span><span>Moz</span><span>Screaming Frog</span><span>PageSpeed Insights</span></div>
+    <div class="lbl">Analytics &amp; Tracking</div>
+    <div class="chips"><span>Google Analytics 4</span><span>Search Console</span><span>Bing Webmaster Tools</span><span>Google Tag Manager</span><span>Looker Studio</span><span>Microsoft Clarity</span></div>
+    <div class="lbl">CMS Plugins</div>
+    <div class="chips"><span>Rank Math</span><span>Yoast SEO</span></div>
+
+    <h2>Workflow</h2>
+    <div class="chips"><span>Jira</span><span>ClickUp</span><span>Trello</span><span>Notion</span><span>Asana</span><span>HubSpot</span></div>
+
+    <h2>Dev &amp; Hosting</h2>
+    <div class="chips"><span>GitHub</span><span>Vercel</span><span>Netlify</span><span>Cloudflare</span></div>
+
+    <h2>Soft Skills</h2>
+    <div class="chips"><span>Strategic Thinking</span><span>Stakeholder Reporting</span><span>Team Mentoring</span><span>Agile Workflow</span><span>Cross-team Collaboration</span><span>Problem Solving</span></div>
+
+    <h2>Languages</h2>
+    <div class="lang">
+      <div>English <span style="display:flex;align-items:center;gap:6px"><span style="font-size:7.4pt;color:#6b6a65">Professional</span><span class="bar"><i style="width:85%"></i></span></span></div>
+      <div>Urdu <span style="display:flex;align-items:center;gap:6px"><span style="font-size:7.4pt;color:#6b6a65">Native</span><span class="bar"><i style="width:100%"></i></span></span></div>
+      <div>Punjabi <span style="display:flex;align-items:center;gap:6px"><span style="font-size:7.4pt;color:#6b6a65">Native</span><span class="bar"><i style="width:100%"></i></span></span></div>
+    </div>
+
+    <h2>Interests</h2>
+    <div class="chips"><span>AI &amp; Search Research</span><span>Writing about SEO</span><span>Building Web Projects</span><span>Tech Communities</span><span>Continuous Learning</span></div>
+
+    <h2>References</h2>
+    <p style="font-size:8.4pt;text-align:left">Available upon request.</p>
+  </aside>
+  <div class="foot">Muhammad Arslan Younas · Resume · Page 2 of 2</div>
+</div>
 </body></html>
