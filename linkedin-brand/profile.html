@@ -1,0 +1,10 @@
+<!doctype html><html><head><meta charset="utf-8"><link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@600&display=swap" rel="stylesheet">
+<style>*{margin:0;padding:0;box-sizing:border-box}
+body{width:400px;height:400px;overflow:hidden}
+.c{position:relative;width:400px;height:400px;overflow:hidden;background:radial-gradient(circle at 50% 38%,#ff7a47 0,#ff4f12 45%,#c93a07 100%)}
+.c::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.16) 1px,transparent 1px);background-size:14px 14px;-webkit-mask:radial-gradient(circle at 50% 40%,transparent 30%,#000 75%);mask:radial-gradient(circle at 50% 40%,transparent 30%,#000 75%)}
+.ring{position:absolute;left:50%;top:44%;width:300px;height:300px;margin:-150px 0 0 -150px;border-radius:50%;border:2px solid rgba(255,255,255,.35)}
+.ring2{position:absolute;left:50%;top:44%;width:360px;height:360px;margin:-180px 0 0 -180px;border-radius:50%;border:1.5px dashed rgba(18,18,17,.35)}
+.dot{position:absolute;width:14px;height:14px;border-radius:50%;background:#121211;border:3px solid #fff;left:318px;top:70px}
+img{position:absolute;left:50%;bottom:-6px;width:380px;transform:translateX(-50%);filter:drop-shadow(0 18px 24px rgba(18,18,17,.35))}
+</style></head><body><div class="c"><span class="ring2"></span><span class="ring"></span><span class="dot"></span><img src="cutout.png"></div></body></html>
