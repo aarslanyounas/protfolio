@@ -60,9 +60,6 @@ document.fonts.ready.then(function(){
  s.style.cssText+="left:"+(r.left-pad)+"px;top:"+top+"px;width:"+(r.width+pad*2)+"px;height:"+(bot-top)+"px";
  s.innerHTML='<s style="left:-6.5px;top:-6.5px"></s><s style="right:-6.5px;top:-6.5px"></s><s style="left:-6.5px;bottom:-6.5px"></s><s style="right:-6.5px;bottom:-6.5px"></s>';
  C.appendChild(s);
- var cu=document.createElement("div");cu.className="cur";cu.style.left=(right+pad-14)+"px";cu.style.top=(bot-8)+"px";
- cu.innerHTML='<svg width="26" height="28" viewBox="0 0 26 28"><path d="M3 2 L22 14 L13 15.5 L8.5 24 Z" fill="#ff4d9d" stroke="#fff" stroke-width="2" stroke-linejoin="round"/></svg><em>Amna</em>';
- C.appendChild(cu);
  document.body.setAttribute("data-ready","1");
 });
 // tool tiles
