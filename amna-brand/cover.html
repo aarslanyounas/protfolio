@@ -1,72 +1,75 @@
 <!doctype html><html><head><meta charset="utf-8">
-<link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@500;600&family=Inter:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@500;600&family=Inter:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{width:2000px;height:500px;overflow:hidden}
-.c{position:relative;width:2000px;height:500px;overflow:hidden;background:#fdfcff;font-family:Inter,sans-serif;color:#16131f;
- background-image:linear-gradient(rgba(40,20,80,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(40,20,80,.03) 1px,transparent 1px);background-size:34.25px 34.2px;background-position:27.5px 24.8px}
-.pill{position:absolute;left:43px;top:44px;display:flex;align-items:center;gap:13px;height:52px;padding:0 28px 0 23px;border-radius:999px;background:#7c4dff;color:#fff;font:600 20px/1 Inter;box-shadow:0 8px 16px -10px rgba(124,77,255,.8)}
-.pill i{width:8px;height:8px;border-radius:50%;background:#fff}
-.motto{position:absolute;left:47px;top:134px;font:500 15px/1 "Geist Mono";letter-spacing:.06em;color:#3b3646}
-.ruler{position:absolute;left:0;top:0;height:48px;width:2000px}
-.ruler span{position:absolute;top:0;width:1.5px;background:#16131f}
-.st{position:absolute;top:52px;transform:translateX(-50%);font:500 16px/1 Inter;color:#16131f;white-space:nowrap}
-.st.now{font-weight:700}
-.st.first{color:#7c4dff;font-weight:600}
-.pre{position:absolute;left:721px;top:156px;font:italic 400 44px/1 "Instrument Serif";color:#16131f;letter-spacing:-.005em}
-h1{position:absolute;left:706px;top:200px;font:800 128px/1.08 Inter;letter-spacing:-.035em;white-space:nowrap;color:transparent;background:linear-gradient(90deg,#16131f 0%,#2e1a5e 16%,#7c4dff 44%,#b14dff 68%,#ff4d9d 100%);-webkit-background-clip:text;background-clip:text;filter:drop-shadow(0 6px 5px rgba(22,19,31,.25))}
-.post{position:absolute;top:333px;font:400 32px/1 Inter;color:#16131f;letter-spacing:-.01em}
-.handle{position:absolute;top:424px;display:flex;align-items:center;gap:12px;font:600 16px/1 Inter}
-.handle i{width:60px;height:1.4px;background:#16131f}
-.handle b{padding:8px 14px;border:1.5px solid #16131f;border-radius:999px;color:#16131f}
-/* Figma-style selection around the headline */
-.sel{position:absolute;border:1.5px solid #7c4dff;pointer-events:none}
-.sel s{position:absolute;width:11px;height:11px;background:#fff;border:1.5px solid #7c4dff}
-.sel .tag{position:absolute;left:-1.5px;bottom:-30px;background:#7c4dff;color:#fff;font:600 12px/1 "Geist Mono";padding:6px 8px;border-radius:0 4px 4px 4px;letter-spacing:.04em}
-.cur{position:absolute;display:flex;align-items:flex-start;gap:2px}
-.cur em{margin-top:20px;background:#ff4d9d;color:#fff;font:600 13px/1 Inter;font-style:normal;padding:6px 10px;border-radius:4px 10px 10px 10px}
-.tiles{position:absolute;left:1560px;top:-26px;width:440px;height:560px;-webkit-mask:linear-gradient(90deg,transparent 0,#000 26%);mask:linear-gradient(90deg,transparent 0,#000 26%)}
-.t{position:absolute;width:54px;height:54px;border-radius:15px;background:#fff;display:grid;place-items:center;
- box-shadow:0 1px 1px rgba(22,19,31,.06),0 6px 12px -4px rgba(22,19,31,.14),inset 0 -3px 0 rgba(22,19,31,.04)}
-.t::after{content:"";position:absolute;left:8px;right:8px;bottom:-9px;height:12px;border-radius:50%;background:var(--g);filter:blur(7px);opacity:.38;z-index:-1}
-.t svg{width:26px;height:26px}
+.c{position:relative;width:2000px;height:500px;overflow:hidden;font-family:Inter,sans-serif;color:#f4ecff;
+ background:radial-gradient(ellipse 55% 95% at 62% 42%,#6b4a8f 0%,#47306a 34%,#2a1b42 68%,#1a1128 100%)}
+.glow{position:absolute;left:1180px;top:-160px;width:900px;height:700px;border-radius:50%;background:radial-gradient(closest-side,rgba(214,190,255,.30),rgba(214,190,255,0));filter:blur(8px)}
+.glow2{position:absolute;left:-200px;top:200px;width:700px;height:500px;border-radius:50%;background:radial-gradient(closest-side,rgba(242,167,195,.14),transparent)}
+.grain{position:absolute;inset:0;opacity:.09;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+svg.pen{position:absolute;left:0;top:0}
+.eyebrow{position:absolute;left:560px;top:92px;display:flex;align-items:center;gap:14px;font:600 14px/1 "Geist Mono";letter-spacing:.22em;color:#cdb7f5}
+.eyebrow i{width:40px;height:1.5px;background:#cdb7f5}
+h1{position:absolute;left:556px;top:124px;font:400 86px/.98 "Instrument Serif";letter-spacing:-.01em;color:#fbf7ff}
+h1 em{font-style:italic;background:linear-gradient(90deg,#cdb7f5 0%,#f2a7c3 55%,#e6c98d 100%);-webkit-background-clip:text;background-clip:text;color:transparent;padding-right:8px}
+.chips{position:absolute;left:560px;top:342px;display:flex;gap:10px}
+.chips span{padding:10px 16px;border-radius:999px;border:1px solid rgba(233,220,255,.22);background:rgba(255,255,255,.06);font:500 15px/1 Inter;color:#eadfff}
+.handle{position:absolute;left:562px;top:418px;font:500 14px/1 "Geist Mono";letter-spacing:.08em;color:rgba(234,223,255,.6)}
+.card{position:absolute;border-radius:18px;background:#fbf8ff;box-shadow:0 30px 50px -18px rgba(8,4,16,.65),0 8px 16px -8px rgba(8,4,16,.4);color:#1f1530}
+.pal{left:1390px;top:70px;width:250px;height:300px;transform:rotate(-7deg);padding:14px;display:flex;flex-direction:column}
+.pal .sw{flex:1;display:flex;align-items:flex-end;justify-content:space-between;padding:8px 10px;font:600 11px/1 "Geist Mono";letter-spacing:.06em}
+.pal .sw:first-child{border-radius:10px 10px 0 0}.pal .sw:nth-child(4){border-radius:0 0 10px 10px}
+.pal .lab{margin-top:10px;font:600 11px/1 "Geist Mono";letter-spacing:.16em;color:#7a6c90}
+.type{left:1650px;top:120px;width:250px;height:290px;transform:rotate(6deg);padding:20px 22px}
+.type .aa{font:400 128px/1 "Instrument Serif";letter-spacing:-.02em;color:#2a1b42}
+.type .aa em{font-style:italic;color:#8b6bb8}
+.type .nm{margin-top:10px;font:600 13px/1 Inter;color:#2a1b42}
+.type .ab{margin-top:8px;font:400 15px/1.45 "Instrument Serif";color:#6d5d85;letter-spacing:.02em}
+.type .meta{position:absolute;left:22px;right:22px;bottom:18px;display:flex;justify-content:space-between;font:600 10px/1 "Geist Mono";letter-spacing:.14em;color:#9a8db0}
+.dock{position:absolute;left:1480px;top:400px;display:flex;gap:10px;padding:10px 12px;border-radius:18px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);box-shadow:0 20px 40px -16px rgba(8,4,16,.6)}
+.dock b{width:44px;height:44px;border-radius:12px;background:#fff;display:grid;place-items:center}
+.dock svg{width:24px;height:24px}
+.star{position:absolute;color:#e6c98d}
 </style></head><body><div class="c">
-<div class="pill"><i></i>Let’s Create Together</div>
-<div class="motto">Turning Ideas Into Identity</div>
-<svg style="position:absolute;left:338px;top:64px;width:44px;height:84px" viewBox="0 0 44 84" fill="none" stroke="#16131f" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 76 C 34 70, 42 30, 12 10" stroke-dasharray="4 5"/><path d="M12 10 L22 7 M12 10 L15 20"/></svg>
-<div class="ruler" id="ruler"></div>
-<div class="pre">Ideas become brands</div>
-<h1 id="h">BY DESIGN</h1>
-<div class="post" id="post">Make it unforgettable.</div>
-<div class="handle" id="handle"><i></i><b>@amnayounas</b></div>
-<div class="tiles" id="tiles"></div>
+<div class="glow"></div><div class="glow2"></div>
+<svg class="pen" width="2000" height="500" viewBox="0 0 2000 500" fill="none">
+ <defs><linearGradient id="g" x1="0" x2="1000" y1="0" y2="0" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#f2a7c3" stop-opacity=".1"/><stop offset=".4" stop-color="#cdb7f5" stop-opacity=".75"/><stop offset="1" stop-color="#cdb7f5" stop-opacity="0"/></linearGradient></defs>
+ <path d="M-20 300 C 140 120, 330 470, 470 250 S 760 40, 1000 70" stroke="url(#g)" stroke-width="2.2"/>
+ <g stroke="#cdb7f5" stroke-width="1.4" opacity=".9">
+  <line x1="398" y1="361" x2="513" y2="184"/>
+  <circle cx="398" cy="361" r="6" fill="#2a1b42"/><circle cx="513" cy="184" r="6" fill="#2a1b42"/>
+ </g>
+ <rect x="462" y="242" width="16" height="16" fill="#fbf7ff" stroke="#8b6bb8" stroke-width="2"/>
+ <rect x="132" y="186" width="12" height="12" fill="#2a1b42" stroke="#cdb7f5" stroke-width="1.6"/>
+</svg>
+<div class="eyebrow"><i></i>AMNA YOUNAS · CREATIVE DESIGNER</div>
+<h1>Designs that make<br>brands <em>unforgettable.</em></h1>
+<div class="chips"><span>Brand Identity</span><span>Social Media</span><span>UI &amp; Web</span><span>Print &amp; Packaging</span></div>
+<div class="handle">@amnayounas</div>
+<div class="card pal">
+ <div class="sw" style="background:#2a1b42;color:#cdb7f5"><span>PLUM</span><span>#2A1B42</span></div>
+ <div class="sw" style="background:#8b6bb8;color:#fff"><span>LAVENDER</span><span>#8B6BB8</span></div>
+ <div class="sw" style="background:#f2a7c3;color:#2a1b42"><span>ROSE</span><span>#F2A7C3</span></div>
+ <div class="sw" style="background:#e6c98d;color:#2a1b42"><span>GOLD</span><span>#E6C98D</span></div>
+ <div class="lab">PALETTE · 04</div>
+</div>
+<div class="card type">
+ <div class="aa">A<em>a</em></div>
+ <div class="nm">Instrument Serif</div>
+ <div class="ab">Aa Bb Cc Dd Ee Ff Gg<br>Hh Ii Jj Kk 0123 &amp;?!</div>
+ <div class="meta"><span>REGULAR</span><span>ITALIC</span></div>
+</div>
+<div class="dock" id="dock"></div>
+<svg class="star" style="left:1352px;top:52px" width="30" height="30" viewBox="0 0 24 24"><path fill="currentColor" d="M12 0c.6 6.6 5.4 11.4 12 12-6.6.6-11.4 5.4-12 12-.6-6.6-5.4-11.4-12-12C6.6 11.4 11.4 6.6 12 0z"/></svg>
+<svg class="star" style="left:1920px;top:56px;color:#f2a7c3" width="20" height="20" viewBox="0 0 24 24"><path fill="currentColor" d="M12 0c.6 6.6 5.4 11.4 12 12-6.6.6-11.4 5.4-12 12-.6-6.6-5.4-11.4-12-12C6.6 11.4 11.4 6.6 12 0z"/></svg>
+<div class="grain"></div>
 </div>
 <script src="icons.js"></script>
 <script>
-var C=document.querySelector(".c");
-// process ruler: Idea → Launch (current stage bold)
-var steps=["Idea","Sketch","Wireframe","Design","Prototype","Launch"],gap=120,x0=700,R=document.getElementById("ruler"),h="";
-for(var k=0;k<steps.length;k++){var x=x0+k*gap,st=k==0?'background:repeating-linear-gradient(#7c4dff 0 4px,transparent 4px 8px);height:34px':k==3?'height:44px;width:2.5px':'height:34px';
- h+='<span style="left:'+x+'px;'+st+'"></span>';
- if(k<steps.length-1)for(var j=1;j<5;j++)h+='<span style="left:'+(x+j*gap/5)+'px;height:16px;'+(k==0?'background:#cbb8ff':'')+'"></span>';
- var d=document.createElement("div");d.className="st"+(k==0?" first":k==3?" now":"");d.textContent=steps[k];d.style.left=(x+1)+"px";C.appendChild(d);}
-R.innerHTML=h;
-document.fonts.ready.then(function(){
- var H=document.getElementById("h"),r=H.getBoundingClientRect(),right=r.left+r.width;
- var p=document.getElementById("post");p.style.left=(right-p.offsetWidth)+"px";
- var hd=document.getElementById("handle");hd.style.left=(r.left+r.width/2-hd.offsetWidth/2+60)+"px";
- // selection box around headline
- var s=document.createElement("div");s.className="sel";var pad=10,top=r.top+20,bot=r.top+r.height-12;
- s.style.cssText+="left:"+(r.left-pad)+"px;top:"+top+"px;width:"+(r.width+pad*2)+"px;height:"+(bot-top)+"px";
- s.innerHTML='<s style="left:-6.5px;top:-6.5px"></s><s style="right:-6.5px;top:-6.5px"></s><s style="left:-6.5px;bottom:-6.5px"></s><s style="right:-6.5px;bottom:-6.5px"></s>';
- C.appendChild(s);
- document.body.setAttribute("data-ready","1");
-});
-// tool tiles
-Promise.resolve(window.ICONS).then(function(ic){
- var T=document.getElementById("tiles"),cols=5,pitch=80,html="";
- ic.forEach(function(o,i){var c=i%cols,r=Math.floor(i/cols);
-  html+='<div class="t" style="left:'+(70+c*pitch)+'px;top:'+(30+r*pitch)+'px;--g:#'+o.hex+'"><svg viewBox="0 0 24 24"><path fill="#'+o.hex+'" d="'+o.path+'"/></svg></div>';});
- T.innerHTML=html;document.body.setAttribute("data-tiles","1");});
+var pick=["figma","adobeillustrator","adobephotoshop","adobeindesign","canva","adobeaftereffects"],D=document.getElementById("dock");
+D.innerHTML=pick.map(function(s){var o=ICONS.find(function(x){return x.s==s});return '<b><svg viewBox="0 0 24 24"><path fill="#'+o.hex+'" d="'+o.path+'"/></svg></b>'}).join("");
+document.body.setAttribute("data-tiles","1");
+document.fonts.ready.then(function(){document.body.setAttribute("data-ready","1")});
 </script>
 </body></html>
